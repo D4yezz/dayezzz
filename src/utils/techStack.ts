@@ -1,0 +1,15 @@
+export const techStack = [
+  { name: "React", category: "Frontend Library", url: "react.png" },
+  { name: "Next.js", category: "React Framework", url: "nextjs.png" },
+  { name: "JavaScript", category: "Language", url: "javascript.png" },
+  { name: "TypeScript", category: "Language", url: "typescript.png" },
+  { name: "Tailwind CSS", category: "Styling", url: "tailwind.png" },
+  { name: "Zustand", category: "State Management", url: "zustand.png" },
+  { name: "Shadcn", category: "UI Components", url: "shadcn.png" },
+  { name: "Framer Motion", category: "Animation", url: "motion.png" },
+  { name: "Lenis", category: "Scroll & UX", url: "lenis.png" },
+  { name: "Supabase", category: "Backend / BaaS", url: "supabase.jpeg" },
+  { name: "MySQL", category: "Database", url: "mysql.png" },
+  { name: "Playwright", category: "Testing", url: "playwright.png" },
+  { name: "Git", category: "Version Control", url: "git.png" },
+];
