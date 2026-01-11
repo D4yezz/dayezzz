@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import { useEffect, useState } from "react";
 
 type CursorMode = "default" | "box";
@@ -33,7 +33,7 @@ export default function CustomCursor() {
       clearTimeout(timeout);
     };
   }, []);
-  const variants = {
+  const variants: Variants = {
     default: {
       x: mouse.x - 14,
       y: mouse.y - 14,
