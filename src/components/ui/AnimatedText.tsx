@@ -1,24 +1,9 @@
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 
 type Props = {
   text: string;
   className?: string;
 };
-
-// type  charVariantsType = {
-//   hidden: {
-//     y: string;
-//     opacity: number;
-//   };
-//   show: {
-//     y: string;
-//     opacity: number;
-//     transition: {
-//       duration: number;
-//       ease: number[];
-//     };
-//   };
-// };
 
 const container = {
   hidden: {},
@@ -29,7 +14,7 @@ const container = {
   },
 };
 
-const charVariants= {
+const charVariants: Variants = {
   hidden: {
     y: "100%",
     opacity: 0,
@@ -39,12 +24,12 @@ const charVariants= {
     opacity: 1,
     transition: {
       duration: 0.6,
-      ease: [0.22, 1, 0.36, 1],
+      ease: [0.22, 1, 0.36, 1], // aman
     },
   },
 };
 
-export default function AnimatedText({ text, className}: Props) {
+export default function AnimatedText({ text, className }: Props) {
   return (
     <>
       {/* <motion.span
@@ -74,15 +59,13 @@ export default function AnimatedText({ text, className}: Props) {
         className={`max-w-xl ${className}`}
         // style={style}
       >
-        {text
-          .split("")
-          .map((char, i) => (
-            <span key={i} className="inline-block overflow-hidden">
-              <motion.span variants={charVariants  } className="inline-block">
-                {char === " " ? "\u00A0" : char}
-              </motion.span>
-            </span>
-          ))}
+        {text.split("").map((char, i) => (
+          <span key={i} className="inline-block overflow-hidden">
+            <motion.span variants={charVariants} className="inline-block">
+              {char === " " ? "\u00A0" : char}
+            </motion.span>
+          </span>
+        ))}
       </motion.p>
     </>
   );
