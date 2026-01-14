@@ -34,8 +34,8 @@ export default function TechCard({
           style={{
             x,
             y,
-            translateX: "-50%",
-            translateY: "-50%",
+            translateX: "-80%",
+            translateY: "-80%",
           }}
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}

@@ -1,5 +1,6 @@
 import DotGrid from "@/components/ReactBites/DotGrid";
 import { motion, useScroll, useTransform } from "framer-motion";
+import { Download } from "lucide-react";
 import Link from "next/link";
 import { useRef } from "react";
 
@@ -53,11 +54,11 @@ export default function Contact() {
   });
 
   const opacity = useTransform(scrollYProgress, [0, 0.4], [0, 1]);
-  const scale = useTransform(scrollYProgress, [0.5, 1], [1, 1.5]);
+  const scale = useTransform(scrollYProgress, [0.5, 1], [1, 0.5]);
   const blur = useTransform(
     scrollYProgress,
-    [0.6, 1],
-    ["blur(0px)", "blur(6px)"]
+    [0, 0.4, 0.5, 1],
+    ["blur(6px)", "blur(0px)", "blur(0px)", "blur(8px)"]
   );
   const element1X = useTransform(scrollYProgress, [0, 0.8], [-100, 0]);
   const element2X = useTransform(scrollYProgress, [0, 0.8], [100, 0]);
@@ -94,10 +95,19 @@ export default function Contact() {
           className="w-[75%] flex justify-between items-center z-10"
         >
           <motion.button
+            onClick={() => {
+              const link = document.createElement("a");
+              link.href = "/5.png";
+              link.setAttribute("download", "5.png");
+              link.click();
+            }}
             style={{ x: element1X }}
-            className="border-y-2 w-fit h-fit border-zinc-800 py-2 px-8 font-medium text-xl cursor-pointer hover:bg-zinc-800 hover:text-gray-300 duration-200 ease-in-out"
+            className="group relative overflow-hidden flex flex-col items-center justify-center border-y-2 w-60 h-fit border-zinc-800 py-6 px-8 font-medium text-xl cursor-pointer hover:bg-zinc-800 hover:text-gray-300 duration-200 ease-in-out"
           >
-            See My CV
+            <span className="absolute top-1/2 group-hover:-top-10 left-1/2 -translate-x-1/2 -translate-y-1/2 duration-300 ease-in-out">
+              See My CV
+            </span>
+            <Download className="absolute top-15 group-hover:top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 duration-300 ease-in-out" />
           </motion.button>
           <motion.ul style={{ x: element2X }} className="flex gap-10">
             {socialLinks.map((item) => (

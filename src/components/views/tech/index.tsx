@@ -45,7 +45,7 @@ export default function Tech() {
           </motion.div>
           <motion.div
             style={{ y: card2Y }}
-            className="relative flex flex-wrap flex-initial items-center justify-center gap-6 mb-8 px-14"
+            className="relative flex flex-wrap flex-initial items-center justify-center gap-6 mb-8"
           >
             {techStack.map((tech, index) => (
               <TechCard key={index} tech={tech} index={index} />

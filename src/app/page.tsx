@@ -8,6 +8,7 @@ import { useRef } from "react";
 import { useScroll } from "framer-motion";
 import Projects from "@/components/views/projects";
 import Contact from "@/components/views/contact";
+import Footer from "@/components/views/footer";
 
 export default function Home() {
   const welcomeRef = useRef<HTMLDivElement>(null);
@@ -29,9 +30,7 @@ export default function Home() {
       <Tech />
       <Projects />
       <Contact />
-      <section className="w-full h-screen flex items-center justify-center font-montserrat bg-linear-to-br from-gray-600 to-zinc-800 text-gray-300">
-        <h1 className="font-bold text-4xl">Coming Soon...</h1>
-      </section>
+      <Footer />
     </section>
   );
 }

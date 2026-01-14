@@ -18,7 +18,6 @@ export function useFollowInside(ref: RefObject<HTMLElement | null>) {
       const mx = e.clientX - rect.left;
       const my = e.clientY - rect.top;
 
-      // clamp biar ga keluar
       const padding = 32;
       const cx = Math.max(padding, Math.min(mx, rect.width - padding));
       const cy = Math.max(padding, Math.min(my, rect.height - padding));
