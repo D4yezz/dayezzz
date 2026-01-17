@@ -58,7 +58,7 @@ export const projects = [
     id: 5,
     name: "Pentol Ngetop",
     description:
-      "Trusted Spicy Meatball Ordering Website. With an admin dashboard system to manage orders from buyers.",
+      "Trusted spicy meatball ordering website. With an admin dashboard system to manage orders from buyers.",
     longDesc: "",
     image: "/projects/pentol-ngetop.png",
     tags: [
@@ -77,9 +77,9 @@ export const projects = [
     id: 6,
     name: "Dayezzz.",
     description:
-      "My portfolio website. lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "A website to describe myself as a developer and showcase my projects.",
     longDesc: "My portfolio website",
-    image: "/helm.jpg",
+    image: "/projects/dayezzz.png",
     tags: [
       "NextJS",
       "TailwindCSS",

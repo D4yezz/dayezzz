@@ -17,14 +17,14 @@ export default function Home() {
     offset: ["start start", "end end"],
   });
   return (
-    <section className="w-full text-zinc-800 bg-zinc-800 relative">
+    <section className="relative w-full text-zinc-800 bg-zinc-800">
       <Navbar />
       <section
         ref={welcomeRef}
-        className="relative h-[200vh] bg-zinc-800 overflow-hidden"
+        className="relative lg:h-[200vh] h-fit bg-zinc-800 overflow-hidden"
       >
         <Welcome scrollYProgress={welcomeProgress} />
-        <Philosophy scrollYProgress={welcomeProgress} />
+        <Philosophy refMobile={welcomeRef} scrollYProgress={welcomeProgress} />
       </section>
       <Skills />
       <Tech />

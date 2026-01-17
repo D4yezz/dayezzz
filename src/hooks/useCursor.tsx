@@ -2,7 +2,12 @@
 
 import { createContext, useContext, useState } from "react";
 
-const CursorContext = createContext<any>(null);
+interface CursorContextType {
+  variant: string;
+  setVariant: (variant: string) => void;
+}
+
+const CursorContext = createContext<CursorContextType | null>(null);
 
 export function CursorProvider({ children }: { children: React.ReactNode }) {
   const [variant, setVariant] = useState("default");

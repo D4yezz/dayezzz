@@ -65,7 +65,7 @@ export default function Contact() {
   return (
     <section
       ref={ref}
-      className="relative w-full h-screen p-12 flex items-center justify-center font-geist-sans bg-zinc-800"
+      className="relative flex items-center justify-center w-full h-screen p-12 font-geist-sans bg-zinc-800"
     >
       <motion.div
         style={{ filter: blur }}
@@ -73,18 +73,18 @@ export default function Contact() {
       >
         <motion.div
           style={{ scale, opacity }}
-          className="sticky bottom-10 overflow-y-hidden w-fit flex justify-center items-center flex-col gap-8 z-10"
+          className="sticky z-10 flex flex-col items-center justify-center gap-8 overflow-y-hidden bottom-10 w-fit"
         >
           <h1 className="font-semibold text-[8rem] text-center tracking-tight leading-28">
             LET&#39;S WORK <br /> TOGETHER
           </h1>
           <div className="flex items-center gap-8 font-medium">
-            {/* <button className="px-8 py-2 bg-zinc-800 text-gray-300 border-2 hover:border-zinc-800 hover:bg-gray-300 hover:text-zinc-800 duration-200 ease-in-out cursor-pointer">
+            {/* <button className="px-8 py-2 text-gray-300 duration-200 ease-in-out border-2 cursor-pointer bg-zinc-800 hover:border-zinc-800 hover:bg-gray-300 hover:text-zinc-800">
             Download CV
           </button> */}
             <Link
               href={"/contact"}
-              className="px-12 py-2 text-xl overflow-hidden bg-zinc-800 text-gray-300 border-2 hover:border-zinc-800 hover:bg-gray-300 hover:text-zinc-800 duration-200 ease-in-out cursor-pointer"
+              className="px-12 py-2 overflow-hidden text-xl text-gray-300 duration-200 ease-in-out border-2 cursor-pointer bg-zinc-800 hover:border-zinc-800 hover:bg-gray-300 hover:text-zinc-800"
             >
               Contact Now
             </Link>
@@ -102,12 +102,12 @@ export default function Contact() {
               link.click();
             }}
             style={{ x: element1X }}
-            className="group relative overflow-hidden flex flex-col items-center justify-center border-y-2 w-60 h-fit border-zinc-800 py-6 px-8 font-medium text-xl cursor-pointer hover:bg-zinc-800 hover:text-gray-300 duration-200 ease-in-out"
+            className="relative flex flex-col items-center justify-center px-8 py-6 overflow-hidden text-xl font-medium duration-200 ease-in-out cursor-pointer group border-y-2 w-60 h-fit border-zinc-800 hover:bg-zinc-800 hover:text-gray-300"
           >
-            <span className="absolute top-1/2 group-hover:-top-10 left-1/2 -translate-x-1/2 -translate-y-1/2 duration-300 ease-in-out">
+            <span className="absolute duration-300 ease-in-out -translate-x-1/2 -translate-y-1/2 top-1/2 group-hover:-top-10 left-1/2">
               See My CV
             </span>
-            <Download className="absolute top-15 group-hover:top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 duration-300 ease-in-out" />
+            <Download className="absolute duration-300 ease-in-out -translate-x-1/2 -translate-y-1/2 top-15 group-hover:top-1/2 left-1/2" />
           </motion.button>
           <motion.ul style={{ x: element2X }} className="flex gap-10">
             {socialLinks.map((item) => (

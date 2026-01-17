@@ -27,10 +27,10 @@ export default function Navbar() {
     if (!lenis) return;
 
     if (open) {
-      lenis.stop(); 
+      lenis.stop();
       document.body.style.overflow = "hidden";
     } else {
-      lenis.start(); 
+      lenis.start();
       document.body.style.overflow = "auto";
     }
   }, [open, lenis]);
@@ -41,7 +41,7 @@ export default function Navbar() {
   };
 
   return (
-    <header className="flex py-8 px-16 font-inter w-full h-fit absolute z-10">
+    <header className="flex lg:py-8 py-6 lg:px-16 px-8 font-inter w-full h-fit absolute z-10">
       <nav className="flex justify-between w-full items-start">
         <Link
           href="/"

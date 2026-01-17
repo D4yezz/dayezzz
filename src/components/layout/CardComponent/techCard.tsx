@@ -24,13 +24,13 @@ export default function TechCard({
       onHoverStart={() => setHovered(true)}
       onHoverEnd={() => setHovered(false)}
       whileHover={{ scale: 1.05, y: -6 }}
-      className="group w-60 cursor-none relative overflow-hidden bg-zinc-900 border-2 border-gray-300/20 p-6 hover:border-gray-300"
+      className="relative p-6 overflow-hidden border-2 group w-60 cursor-none bg-zinc-900 border-gray-300/20 hover:border-gray-300"
     >
       {hovered && (
         <motion.img
           src={"/tech/" + tech.url}
           alt={tech.name}
-          className="pointer-events-none absolute w-10 h-10 z-10 opacity-90"
+          className="absolute z-10 w-10 h-10 pointer-events-none opacity-90"
           style={{
             x,
             y,
@@ -48,17 +48,17 @@ export default function TechCard({
         />
       )}
 
-      <div className="absolute top-2 right-2 text-xs font-mono text-gray-500 z-20">
+      <div className="absolute z-20 font-mono text-xs text-gray-500 top-2 right-2">
         {tech.category}
       </div>
 
-      <div className="flex items-center justify-center h-24 z-20 relative">
-        <h3 className="text-2xl font-bold text-gray-300 text-center">
+      <div className="relative z-20 flex items-center justify-center h-24">
+        <h3 className="text-2xl font-bold text-center text-gray-300">
           {tech.name}
         </h3>
       </div>
 
-      <div className="absolute bottom-0 left-0 w-0 h-1 bg-gray-300 group-hover:w-full transition-all duration-500" />
+      <div className="absolute bottom-0 left-0 w-0 h-1 transition-all duration-500 bg-gray-300 group-hover:w-full" />
     </motion.div>
   );
 }

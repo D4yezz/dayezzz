@@ -1,6 +1,6 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import Link from "next/link";
-import { useRef, useState } from "react";
+import { useRef} from "react";
 
 const navigation = [
   { name: "Home", href: "/" },
@@ -29,7 +29,7 @@ export default function Footer() {
   return (
     <footer
       ref={ref}
-      className="w-full h-screen flex flex-col justify-end bg-zinc-800 text-gray-300 py-8 font-geist-sans mt-20 overflow-hidden perspective-distant"
+      className="flex flex-col justify-end w-full h-screen py-8 mt-20 overflow-hidden text-gray-300 bg-zinc-800 font-geist-sans perspective-distant"
     >
       <motion.div
         style={{
@@ -39,7 +39,7 @@ export default function Footer() {
           y: element1Y,
           transformStyle: "preserve-3d",
         }}
-        className="flex justify-between h-42 px-16"
+        className="flex justify-between px-16 h-42"
       >
         <ul className="text-[2rem] font-medium h-full flex flex-col justify-between">
           <li className="group w-fit">
@@ -48,11 +48,11 @@ export default function Footer() {
             </a>
             <div className="w-0 group-hover:w-[103%] h-1 bg-gray-300 duration-300 ease-in-out" />
           </li>
-          <li className="group w-fit select-none">
+          <li className="select-none group w-fit">
             Malang, East Java, Indonesia.
             <div className="w-0 group-hover:w-[103%] h-1 bg-gray-300 duration-300 ease-in-out" />
           </li>
-          <li className="group w-fit select-none">
+          <li className="select-none group w-fit">
             Freelance & Project-based work
             <div className="w-0 group-hover:w-[103%] h-1 bg-gray-300 duration-300 ease-in-out" />
           </li>
@@ -62,12 +62,12 @@ export default function Footer() {
             <Link
               key={item.name}
               href={item.href}
-              className="group relative overflow-hidden w-34 h-1/4 flex flex-col text-gray-300"
+              className="relative flex flex-col overflow-hidden text-gray-300 group w-34 h-1/4"
             >
-              <div className="absolute top-1/2 group-hover:-top-5 right-0 -translate-y-1/2 duration-300 ease-in-out">
+              <div className="absolute right-0 duration-300 ease-in-out -translate-y-1/2 top-1/2 group-hover:-top-5">
                 {item.name}
               </div>
-              <div className="absolute top-15 group-hover:top-1/2 right-0 -translate-y-1/2 duration-300 ease-in-out">
+              <div className="absolute right-0 duration-300 ease-in-out -translate-y-1/2 top-15 group-hover:top-1/2">
                 {item.name}
               </div>
             </Link>
@@ -86,7 +86,7 @@ export default function Footer() {
       >
         <h1 className="flex items-end justify-center">
           Dayezzz
-          <div className="w-12 h-12 bg-gray-300 rounded-full mb-10 ml-2"></div>
+          <div className="w-12 h-12 mb-10 ml-2 bg-gray-300 rounded-full"></div>
         </h1>
       </motion.div>
       <motion.div
@@ -99,14 +99,14 @@ export default function Footer() {
           ease: [0.22, 1, 0.36, 1],
         }}
         viewport={{ amount: 0.3 }}
-        className="w-full flex flex-col gap-4 justify-center px-16 my-8"
+        className="flex flex-col justify-center w-full gap-4 px-16 my-8"
       >
         <div className="w-full h-0.5 bg-linear-to-r from-gray-300/10 via-gray-300 to-gray-300/10" />
         <div className="flex justify-between">
-          <p className="text-gray-300 text-sm">
+          <p className="text-sm text-gray-300">
             © {year} Dias Adi. All rights reserved.
           </p>
-          <p className="text-gray-300 text-sm">Designed & Built by Dias Adi</p>
+          <p className="text-sm text-gray-300">Designed & Built by Dias Adi</p>
         </div>
       </motion.div>
     </footer>
