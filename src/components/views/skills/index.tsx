@@ -36,10 +36,10 @@ export default function Skills() {
   const card2Y = useTransform(scrollYProgress, [0.15, 0.45], [100, 0]);
 
   return (
-    <section ref={ref} className="relative h-[430vh] bg-zinc-800">
+    <section ref={ref} className="relative lg:h-[430vh] h-[200vh] bg-zinc-800">
       <motion.section
         style={{ y, opacity }}
-        className="w-full h-fit top-0 sticky px-8 py-24 text-gray-300 flex flex-col items-center justify-center font-instrument-sans overflow-hidden bg-zinc-800"
+        className="sticky top-0 flex flex-col items-center justify-center w-full px-8 py-24 overflow-hidden text-gray-300 h-fit font-instrument-sans bg-zinc-800"
       >
         <SeparatorSection
           scrollYProgress={scrollYProgress}
@@ -47,26 +47,28 @@ export default function Skills() {
           title="Skills & Expertise"
           description="What I Do"
         />
-        <div className="w-full h-fit my-8">
+        <div className="relative w-full my-4 overflow-hidden lg:my-8 h-fit">
+          <div className="absolute top-0 left-0 z-10 w-10 h-full md:w-40 bg-linear-to-r from-zinc-800 to-transparent " />
           <ScrollVelocity
-            scrollerClassName="text-[10rem]"
+            scrollerClassName="lg:text-[10rem] text-[4rem] lg:leading-34 leading-16"
             texts={["frontend developer", "frontend developer"]}
             velocity={70}
-            className="custom-scroll-text uppercase font-instrument-sans"
+            className="uppercase custom-scroll-text font-instrument-sans"
           />
+          <div className="absolute top-0 right-0 z-10 w-10 h-full md:w-40 bg-linear-to-l from-zinc-800 to-transparent " />
         </div>
 
         <div className="w-full border-b-2 border-gray-300" />
 
         <div className="flex flex-col items-center justify-center w-full">
-          <p className="mt-20 mb-12 text-3xl text-center">
+          <p className="my-10 text-2xl text-center lg:mt-20 lg:mb-12 lg:text-3xl">
             Building modern interfaces with <br />
             attention to detail and performance.
           </p>
 
           <motion.div
             style={{ y: card2Y }}
-            className="w-full max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 pb-20"
+            className="grid w-full grid-cols-1 gap-6 pb-20 mx-auto max-w-7xl md:grid-cols-3"
           >
             {skills.map((skill, index) => (
               <motion.div
@@ -76,20 +78,20 @@ export default function Skills() {
                 transition={{ delay: index * 0.1, duration: 0.6 }}
                 viewport={{ once: true }}
                 whileHover={{ scale: 1.05, y: -5 }}
-                className="group relative bg-gray-300 border-2 border-gray-300 p-8 transition-all duration-500 hover:bg-zinc-800 hover:shadow-2xl hover:scale-105"
+                className="relative p-8 transition-all duration-500 bg-gray-300 border-2 border-gray-300 group hover:bg-zinc-800 hover:shadow-2xl hover:scale-105"
               >
-                <div className="absolute top-4 right-4 text-6xl font-bold text-gray-400 group-hover:text-gray-300 opacity-20 transition-all duration-500">
+                <div className="absolute text-6xl font-bold text-gray-400 transition-all duration-500 select-none top-4 right-4 group-hover:text-gray-300 opacity-20">
                   0{index + 1}
                 </div>
                 <div className="relative z-10">
-                  <h3 className="text-3xl font-bold mb-4 text-zinc-800 group-hover:text-gray-300 transition-colors duration-500">
+                  <h3 className="mb-4 text-3xl font-bold transition-colors duration-500 text-zinc-800 group-hover:text-gray-300">
                     {skill.title}
                   </h3>
-                  <p className="text-lg text-zinc-700 group-hover:text-gray-400 transition-colors duration-500 leading-relaxed">
+                  <p className="text-lg leading-relaxed transition-colors duration-500 text-zinc-700 group-hover:text-gray-400">
                     {skill.description}
                   </p>
                 </div>
-                <div className="absolute bottom-4 left-4 w-12 h-1 bg-zinc-800 group-hover:bg-gray-300 group-hover:w-24 transition-all duration-500" />
+                <div className="absolute w-12 h-1 transition-all duration-500 bottom-4 left-4 bg-zinc-800 group-hover:bg-gray-300 group-hover:w-24" />
               </motion.div>
             ))}
           </motion.div>

@@ -3,7 +3,7 @@ import SeparatorSection from "@/components/layout/SeparatorSection";
 import Magnet from "@/components/ReactBites/Magnet";
 import { projects } from "@/utils/projects";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { Bug, FolderCode, GitBranch, Star } from "lucide-react";
+import { FolderCode, Star } from "lucide-react";
 import Link from "next/link";
 import { useRef } from "react";
 
@@ -41,7 +41,7 @@ export default function Projects() {
       <section ref={ref} className="w-full relative h-[600vh] bg-zinc-800">
         <motion.div
           style={{ opacity, y: divY }}
-          className="w-full min-h-screen sticky top-0 px-8 py-12 text-gray-300 flex flex-col items-center font-sans overflow-hidden"
+          className="sticky top-0 flex flex-col items-center w-full min-h-screen px-8 py-12 overflow-hidden font-sans text-gray-300"
         >
           <SeparatorSection
             scrollYProgress={scrollYProgress}
@@ -50,7 +50,7 @@ export default function Projects() {
             description="What I've Built"
           />
 
-          <div className="flex gap-30 items-center mt-12 text-gray-300 font-semibold overflow-hidden">
+          <div className="flex items-center mt-12 overflow-hidden font-semibold text-gray-300 gap-30">
             <motion.div
               initial={{ x: 0 }}
               animate={{ x: "-100%" }}
@@ -65,7 +65,7 @@ export default function Projects() {
               {Array.from({ length: 10 }).map((_, i) => (
                 <div
                   key={i}
-                  className="flex flex-row gap-26 items-center w-fit"
+                  className="flex flex-row items-center gap-26 w-fit"
                 >
                   FEATURED PROJECTS
                   <Star size={120} fill="#d1d5dc" strokeWidth={0} />
@@ -84,16 +84,16 @@ export default function Projects() {
                 scale: useTransform(
                   scrollYProgress,
                   [0.35, 0.5, 0.8, 0.95],
-                  [1, 0.85, 0.85, 1]
+                  [1, 0.85, 0.85, 1],
                 ),
                 filter: useTransform(
                   scrollYProgress,
                   [0.35, 0.5, 0.8, 0.8],
-                  ["blur(0px)", "blur(4px)", "blur(1px)", "blur(0px)"]
+                  ["blur(0px)", "blur(4px)", "blur(1px)", "blur(0px)"],
                 ),
                 transformStyle: "preserve-3d",
               }}
-              className="absolute left-0 top-0 w-120 z-10"
+              className="absolute top-0 left-0 z-10 w-120"
             >
               <ProjectCard
                 id={projects[idProject.projectOne].id}
@@ -114,16 +114,16 @@ export default function Projects() {
                 scale: useTransform(
                   scrollYProgress,
                   [0.5, 0.65, 0.8, 0.95],
-                  [1, 0.85, 0.85, 1]
+                  [1, 0.85, 0.85, 1],
                 ),
                 filter: useTransform(
                   scrollYProgress,
                   [0.5, 0.65, 0.8, 0.8],
-                  ["blur(0px)", "blur(4px)", "blur(1px)", "blur(0px)"]
+                  ["blur(0px)", "blur(4px)", "blur(1px)", "blur(0px)"],
                 ),
                 transformStyle: "preserve-3d",
               }}
-              className="absolute left-1/2 -translate-x-1/2 top-0 w-120 z-20"
+              className="absolute top-0 z-20 -translate-x-1/2 left-1/2 w-120"
             >
               <ProjectCard
                 id={projects[idProject.projectTwo].id}
@@ -144,16 +144,16 @@ export default function Projects() {
                 scale: useTransform(
                   scrollYProgress,
                   [0.65, 0.8, 0.8, 0.95],
-                  [1, 0.85, 0.85, 1]
+                  [1, 0.85, 0.85, 1],
                 ),
                 filter: useTransform(
                   scrollYProgress,
                   [0.65, 0.8, 0.8, 0.8],
-                  ["blur(0px)", "blur(1px)", "blur(1px)", "blur(0px)"]
+                  ["blur(0px)", "blur(1px)", "blur(1px)", "blur(0px)"],
                 ),
                 transformStyle: "preserve-3d",
               }}
-              className="absolute right-0 top-0 w-120 z-30"
+              className="absolute top-0 right-0 z-30 w-120"
             >
               <ProjectCard
                 id={projects[idProject.projectThree].id}
@@ -177,7 +177,7 @@ export default function Projects() {
           disabled={false}
           magnetStrength={10}
         >
-          <h3 className="text-xl  flex gap-2 items-center">
+          <h3 className="flex items-center gap-2 text-xl">
             <FolderCode strokeWidth={2} size={24} />
             View all projects
           </h3>

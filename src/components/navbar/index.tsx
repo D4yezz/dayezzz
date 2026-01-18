@@ -16,10 +16,10 @@ const menu = [
 
 export default function Navbar() {
   const { open, toggle } = useMenuStore();
-  const { setVariant } = useCursor();
+  const cursor = useCursor();
+  const setVariant = cursor?.setVariant;
   const url = typeof window !== "undefined" ? window.location.pathname : "";
 
-  // const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   const { index: hoveredIndex, setIndex: setHoveredIndex } = useHoveredStore();
   const lenis = useLenis();
 
@@ -91,7 +91,7 @@ export default function Navbar() {
                         }}
                         onMouseEnter={() => {
                           setHoveredIndex(index);
-                          setVariant("nav");
+                          setVariant?.("nav");
                         }}
                         // onMouseMove={handleMove}
                         onMouseLeave={onMouseLeave}
@@ -114,7 +114,7 @@ export default function Navbar() {
                           {item.name}
                         </Link>
                       </motion.li>
-                    )
+                    ),
                 )}
               </motion.ul>
             </motion.div>

@@ -24,7 +24,7 @@ export default function TechCard({
       onHoverStart={() => setHovered(true)}
       onHoverEnd={() => setHovered(false)}
       whileHover={{ scale: 1.05, y: -6 }}
-      className="relative p-6 overflow-hidden border-2 group w-60 cursor-none bg-zinc-900 border-gray-300/20 hover:border-gray-300"
+      className="relative w-40 p-6 overflow-hidden border-2 group lg:w-60 cursor-none bg-zinc-900 border-gray-300/20 hover:border-gray-300"
     >
       {hovered && (
         <motion.img
@@ -53,7 +53,7 @@ export default function TechCard({
       </div>
 
       <div className="relative z-20 flex items-center justify-center h-24">
-        <h3 className="text-2xl font-bold text-center text-gray-300">
+        <h3 className="text-xl font-bold text-center text-gray-300 lg:text-2xl">
           {tech.name}
         </h3>
       </div>

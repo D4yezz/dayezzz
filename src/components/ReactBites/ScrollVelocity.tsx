@@ -45,7 +45,7 @@ interface ScrollVelocityProps {
 }
 
 function useElementWidth<T extends HTMLElement>(
-  ref: React.RefObject<T | null>
+  ref: React.RefObject<T | null>,
 ): number {
   const [width, setWidth] = useState(0);
 
@@ -105,7 +105,7 @@ export const ScrollVelocity: React.FC<ScrollVelocityProps> = ({
       smoothVelocity,
       velocityMapping?.input || [0, 1000],
       velocityMapping?.output || [0, 5],
-      { clamp: false }
+      { clamp: false },
     );
 
     const copyRef = useRef<HTMLSpanElement>(null);
@@ -145,27 +145,30 @@ export const ScrollVelocity: React.FC<ScrollVelocityProps> = ({
           ref={i === 0 ? copyRef : null}
         >
           {children}
-        </span>
+        </span>,
       );
     }
 
     return (
-      <div
-        className={`${parallaxClassName} relative -ml-10 w-[110%] overflow-hidden`}
-        style={parallaxStyle}
-      >
-        <motion.div
-          className={`${scrollerClassName} flex whitespace-nowrap text-center font-sans font-bold tracking-[1px] drop-shadow leading-34`}
-          style={{ x, ...scrollerStyle }}
+      <>
+          {/* <div className="w-20 h-full left-0 top-0 z-0 bg-linear-to-r from-green-800 to-transparent absolute" /> */}
+        <div
+          className={`${parallaxClassName} relative  lg:w-full overflow-hidden`}
+          style={parallaxStyle}
         >
-          {spans}
-        </motion.div>
-      </div>
+          <motion.div
+            className={`${scrollerClassName} flex whitespace-nowrap text-center font-sans font-bold tracking-[1px] drop-shadow`}
+            style={{ x, ...scrollerStyle }}
+          >
+            {spans}
+          </motion.div>
+        </div>
+      </>
     );
   }
-
+  
   return (
-    <section>
+    <section className="overflow-hidden relative">
       {texts.map((text: string, index: number) => (
         <VelocityText
           key={index}

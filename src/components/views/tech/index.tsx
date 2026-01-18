@@ -22,10 +22,10 @@ export default function Tech() {
   const card4Y = useTransform(scrollYProgress, [0.4, 0.9], [100, 0]);
 
   return (
-    <section ref={techRef} className="relative h-[160vh] bg-zinc-800">
+    <section ref={techRef} className="relative lg:h-[160vh] h-fit bg-zinc-800">
       <motion.div
         style={{ opacity }}
-        className="w-full min-h-screen px-8 py-34 text-gray-300 flex flex-col items-center justify-center font-instrument-sans overflow-hidden relative bg-zinc-800"
+        className="relative flex flex-col items-center justify-center w-full min-h-screen px-4 py-8 overflow-hidden text-gray-300 lg:px-8 lg:py-34 font-instrument-sans bg-zinc-800"
       >
         <motion.div style={{ y: divY }} className="w-full">
           <SeparatorSection
@@ -35,8 +35,8 @@ export default function Tech() {
             description="What I Use"
           />
 
-          <motion.div style={{ y: card1Y, scale }} className="mt-20 mb-12">
-            <h2 className="text-5xl font-bold text-center mb-4">
+          <motion.div style={{ y: card1Y, scale }} className="mt-10 mb-12 lg:mt-20">
+            <h2 className="mb-4 text-4xl font-bold text-center lg:text-5xl">
               Tools & Technologies
             </h2>
             <p className="text-xl text-center text-gray-400">
@@ -45,7 +45,7 @@ export default function Tech() {
           </motion.div>
           <motion.div
             style={{ y: card2Y }}
-            className="relative flex flex-wrap flex-initial items-center justify-center gap-6 mb-8"
+            className="relative flex flex-wrap items-center justify-center flex-initial gap-2 lg:gap-6 lg:mb-8"
           >
             {techStack.map((tech, index) => (
               <TechCard key={index} tech={tech} index={index} />
@@ -53,15 +53,15 @@ export default function Tech() {
           </motion.div>
           <motion.div
             style={{ scale: scaleSecond, opacity, y: card4Y }}
-            className="w-3xl border-t-2 border-gray-300 flex items-center justify-center mx-auto py-3"
+            className="flex items-center justify-center w-full py-3 mx-auto border-t-2 border-gray-300 lg:w-3xl"
           >
             <h2>And keep learning...</h2>
           </motion.div>
 
-          <motion.div style={{ y: card3Y }} className="text-center py-22">
-            <p className="text-3xl text-gray-400 max-w-3xl mx-auto leading-relaxed">
+          <motion.div style={{ y: card3Y }} className="px-8 py-16 text-center lg:py-22 lg:px-0">
+            <p className="max-w-3xl mx-auto text-xl leading-relaxed text-gray-400 lg:text-3xl">
               Combining these tools to create{" "}
-              <span className="text-gray-300 font-semibold">
+              <span className="font-semibold text-gray-300">
                 performant, beautiful, and interactive
               </span>{" "}
               web applications that users love.

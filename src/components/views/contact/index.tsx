@@ -65,7 +65,7 @@ export default function Contact() {
   return (
     <section
       ref={ref}
-      className="relative flex items-center justify-center w-full h-screen p-12 font-geist-sans bg-zinc-800"
+      className="relative flex items-center justify-center w-full h-screen p-12 font-geist-sans bg-zinc-800 overflow-hidden"
     >
       <motion.div
         style={{ filter: blur }}
@@ -75,7 +75,7 @@ export default function Contact() {
           style={{ scale, opacity }}
           className="sticky z-10 flex flex-col items-center justify-center gap-8 overflow-y-hidden bottom-10 w-fit"
         >
-          <h1 className="font-semibold text-[8rem] text-center tracking-tight leading-28">
+          <h1 className="font-semibold lg:text-[8rem] text-center tracking-tight leading-28">
             LET&#39;S WORK <br /> TOGETHER
           </h1>
           <div className="flex items-center gap-8 font-medium">
