@@ -1,6 +1,7 @@
+import useMediaQuery from "@/hooks/useMediaQuery";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Link from "next/link";
-import { useRef} from "react";
+import { useRef } from "react";
 
 const navigation = [
   { name: "Home", href: "/" },
@@ -10,6 +11,7 @@ const navigation = [
 ];
 
 export default function Footer() {
+  const isDekstop = useMediaQuery("(min-width: 1024px)");
   const year = new Date().getFullYear();
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({
@@ -19,7 +21,7 @@ export default function Footer() {
 
   const opacity = useTransform(scrollYProgress, [0, 0.4], [0, 1]);
   const opacity2 = useTransform(scrollYProgress, [0.2, 0.4], [0, 1]);
-  
+
   const scale1 = useTransform(scrollYProgress, [0, 0.3], [0.9, 1]);
   const scale2 = useTransform(scrollYProgress, [0.25, 0.5], [0.9, 1]);
   const element1Y = useTransform(scrollYProgress, [0, 0.3], [40, 0]);
@@ -29,7 +31,7 @@ export default function Footer() {
   return (
     <footer
       ref={ref}
-      className="flex flex-col justify-end w-full h-screen py-8 mt-20 overflow-hidden text-gray-300 bg-zinc-800 font-geist-sans perspective-distant"
+      className="flex flex-col justify-end w-full py-8 overflow-hidden text-gray-300 lg:h-screen lg:mt-20 mt-30 bg-zinc-800 font-geist-sans perspective-distant"
     >
       <motion.div
         style={{
@@ -39,16 +41,16 @@ export default function Footer() {
           y: element1Y,
           transformStyle: "preserve-3d",
         }}
-        className="flex justify-between px-16 h-42"
+        className="flex flex-col gap-10 lg:flex-row lg:justify-between h-fit lg:px-16 lg:h-42 lg:gap-0"
       >
-        <ul className="text-[2rem] font-medium h-full flex flex-col justify-between">
+        <ul className="lg:text-[2rem] text-[1.5rem] font-medium h-full w-full flex flex-col justify-between lg:px-0 px-4">
           <li className="group w-fit">
             <a href="mailto:adiasmuhsin1206@gmail.com" target="_blank">
               adiasmuhsin1206@gmail.com
             </a>
             <div className="w-0 group-hover:w-[103%] h-1 bg-gray-300 duration-300 ease-in-out" />
           </li>
-          <li className="select-none group w-fit">
+          <li className=" group w-fit">
             Malang, East Java, Indonesia.
             <div className="w-0 group-hover:w-[103%] h-1 bg-gray-300 duration-300 ease-in-out" />
           </li>
@@ -57,19 +59,25 @@ export default function Footer() {
             <div className="w-0 group-hover:w-[103%] h-1 bg-gray-300 duration-300 ease-in-out" />
           </li>
         </ul>
-        <div className="flex flex-col justify-between items-end font-medium text-[2rem] h-full">
+        <div className="flex lg:flex-col flex-row justify-between items-end font-medium lg:bg-transparent bg-gray-300 text-zinc-800 lg:text-[2rem] text-[1.4rem] lg:h-full h-fit px-6 w-full">
           {navigation.map((item) => (
             <Link
               key={item.name}
               href={item.href}
-              className="relative flex flex-col overflow-hidden text-gray-300 group w-34 h-1/4"
+              className="relative flex flex-col overflow-hidden lg:text-gray-300 group lg:w-34 w-fit lg:h-1/4"
             >
-              <div className="absolute right-0 duration-300 ease-in-out -translate-y-1/2 top-1/2 group-hover:-top-5">
-                {item.name}
-              </div>
-              <div className="absolute right-0 duration-300 ease-in-out -translate-y-1/2 top-15 group-hover:top-1/2">
-                {item.name}
-              </div>
+              {isDekstop ? (
+                <>
+                  <div className="absolute right-0 duration-300 ease-in-out -translate-y-1/2 top-1/2 group-hover:-top-5">
+                    {item.name}
+                  </div>
+                  <div className="absolute right-0 duration-300 ease-in-out -translate-y-1/2 top-15 group-hover:top-1/2">
+                    {item.name}
+                  </div>
+                </>
+              ) : (
+                <>{item.name}</>
+              )}
             </Link>
           ))}
         </div>
@@ -82,11 +90,11 @@ export default function Footer() {
           transformStyle: "preserve-3d",
           scale: scale2,
         }}
-        className="w-full uppercase text-center mt-16 font-bold lg:text-[18vw] font-instrument-sans leading-none select-none"
+        className="w-full uppercase text-center lg:mt-16 mt-10 font-bold text-[18vw] font-instrument-sans leading-none select-none"
       >
         <h1 className="flex items-end justify-center">
           Dayezzz
-          <div className="w-12 h-12 mb-10 ml-2 bg-gray-300 rounded-full"></div>
+          <div className="mb-3 ml-2 bg-gray-300 rounded-full lg:w-12 lg:h-12 size-4 lg:mb-10"></div>
         </h1>
       </motion.div>
       <motion.div
@@ -99,7 +107,7 @@ export default function Footer() {
           ease: [0.22, 1, 0.36, 1],
         }}
         viewport={{ amount: 0.3 }}
-        className="flex flex-col justify-center w-full gap-4 px-16 my-8"
+        className="flex flex-col justify-center w-full gap-4 px-4 my-8 lg:px-16"
       >
         <div className="w-full h-0.5 bg-linear-to-r from-gray-300/10 via-gray-300 to-gray-300/10" />
         <div className="flex justify-between">

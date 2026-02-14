@@ -1,10 +1,12 @@
 "use client";
 
 import { CometCard } from "@/components/ui/comet-card";
+import useMediaQuery from "@/hooks/useMediaQuery";
 import { motion } from "framer-motion";
-import { Calendar, CalendarFold } from "lucide-react";
+import { CalendarFold } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { ReactNode } from "react";
 
 interface ProjectCardProps {
@@ -25,10 +27,17 @@ export function ProjectCard({
   tags = [],
   year,
 }: ProjectCardProps) {
+  const router = useRouter();
+  const isDekstop = useMediaQuery("(min-width: 1024px)");
   return (
     <CometCard>
       <div className="relative w-full group">
-        <Link href={"/project/" + id} className="block">
+        <div
+          onClick={() => {
+            if (isDekstop) router.push("/project/" + id);
+          }}
+          className="block"
+        >
           <div className="relative w-full overflow-hidden transition-all duration-300 border rounded-2xl bg-zinc-800 backdrop-blur-sm border-gray-600/30 group-hover:border-gray-600/60">
             <div className="absolute top-0 left-0 right-0 h-px bg-linear-to-r from-transparent via-gray-500/50 to-transparent" />
 
@@ -83,7 +92,12 @@ export function ProjectCard({
                   <CalendarFold size={18} />
                   <span>{year}</span>
                 </div>
-                <div className="flex items-center gap-2 text-gray-500 transition-colors duration-300 group-hover:text-gray-400">
+                <div
+                  onClick={() => {
+                    if (!isDekstop) router.push("/project/" + id);
+                  }}
+                  className="flex items-center gap-2 text-gray-500 transition-colors duration-300 group-hover:text-gray-400"
+                >
                   <span className="text-xs font-medium">VIEW PROJECT</span>
                   <motion.div
                     initial={{ x: 0 }}
@@ -95,7 +109,7 @@ export function ProjectCard({
               </div>
             </div>
           </div>
-        </Link>
+        </div>
       </div>
     </CometCard>
   );

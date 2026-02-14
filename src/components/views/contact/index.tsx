@@ -1,4 +1,6 @@
 import DotGrid from "@/components/ReactBites/DotGrid";
+import TextHover from "@/components/ui/TextHover";
+import useMediaQuery from "@/hooks/useMediaQuery";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Download } from "lucide-react";
 import Link from "next/link";
@@ -47,6 +49,7 @@ const socialLinks = [
 ];
 
 export default function Contact() {
+  const isDekstop = useMediaQuery("(min-width: 1024px)");
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -58,41 +61,38 @@ export default function Contact() {
   const blur = useTransform(
     scrollYProgress,
     [0, 0.4, 0.5, 1],
-    ["blur(6px)", "blur(0px)", "blur(0px)", "blur(8px)"]
+    ["blur(6px)", "blur(0px)", "blur(0px)", "blur(8px)"],
   );
   const element1X = useTransform(scrollYProgress, [0, 0.8], [-100, 0]);
+  const element1Y = useTransform(scrollYProgress, [0, 0.8], [200, 0]);
   const element2X = useTransform(scrollYProgress, [0, 0.8], [100, 0]);
+  const headingY = useTransform(scrollYProgress, [0, 0.5], [-300, 0]);
   return (
     <section
       ref={ref}
-      className="relative flex items-center justify-center w-full h-screen p-12 font-geist-sans bg-zinc-800 overflow-hidden"
+      className="relative flex items-center justify-center w-full h-screen p-4 overflow-hidden lg:p-12 font-geist-sans bg-zinc-800"
     >
       <motion.div
         style={{ filter: blur }}
-        className="w-full h-full flex flex-col gap-20 items-center justify-center bg-gray-300 text-zinc-800 inset-shadow-[0px_0px_8px] inset-shadow-zinc-800 rounded-sm"
+        className="w-full h-full flex flex-col lg:gap-20 gap-4 items-center justify-center bg-gray-300 text-zinc-800 inset-shadow-[0px_0px_8px] inset-shadow-zinc-800 rounded-sm"
       >
         <motion.div
-          style={{ scale, opacity }}
-          className="sticky z-10 flex flex-col items-center justify-center gap-8 overflow-y-hidden bottom-10 w-fit"
+          style={{ scale, opacity, y: headingY }}
+          className="sticky bottom-0 z-20 flex flex-col items-center justify-center gap-8 overflow-y-hidden w-fit"
         >
-          <h1 className="font-semibold lg:text-[8rem] text-center tracking-tight leading-28">
+          <h1 className="lg:font-semibold font-bold lg:text-[8rem] text-[4rem] text-center tracking-tight lg:leading-28 leading-16">
             LET&#39;S WORK <br /> TOGETHER
           </h1>
-          <div className="flex items-center gap-8 font-medium">
-            {/* <button className="px-8 py-2 text-gray-300 duration-200 ease-in-out border-2 cursor-pointer bg-zinc-800 hover:border-zinc-800 hover:bg-gray-300 hover:text-zinc-800">
-            Download CV
-          </button> */}
-            <Link
-              href={"/contact"}
-              className="px-12 py-2 overflow-hidden text-xl text-gray-300 duration-200 ease-in-out border-2 cursor-pointer bg-zinc-800 hover:border-zinc-800 hover:bg-gray-300 hover:text-zinc-800"
-            >
-              Contact Now
-            </Link>
-          </div>
+          <Link
+            href={"/contact"}
+            className="flex items-center justify-center py-3 overflow-hidden text-xl text-gray-300 duration-200 ease-in-out border-2 cursor-pointer w-50 bg-zinc-800 hover:border-zinc-800 hover:bg-gray-300 hover:text-zinc-800"
+          >
+            <TextHover text="Contact Now" />
+          </Link>
         </motion.div>
         <motion.div
-          style={{ opacity }}
-          className="w-[75%] flex justify-between items-center z-10"
+          style={isDekstop ? { opacity } : { opacity, y: element1Y }}
+          className="lg:w-[75%] lg:gap-0 gap-8 w-full flex lg:flex-row flex-col lg:justify-between justify-center items-center z-10"
         >
           <motion.button
             onClick={() => {
@@ -101,15 +101,18 @@ export default function Contact() {
               link.setAttribute("download", "5.png");
               link.click();
             }}
-            style={{ x: element1X }}
-            className="relative flex flex-col items-center justify-center px-8 py-6 overflow-hidden text-xl font-medium duration-200 ease-in-out cursor-pointer group border-y-2 w-60 h-fit border-zinc-800 hover:bg-zinc-800 hover:text-gray-300"
+            style={isDekstop ? { x: element1X } : {}}
+            className="relative flex flex-col items-center justify-center w-2/4 py-5 overflow-hidden font-medium duration-200 ease-in-out cursor-pointer lg:px-8 lg:py-6 lg:text-xl group border-y-2 lg:w-60 h-fit border-zinc-800 hover:bg-zinc-800 hover:text-gray-300"
           >
             <span className="absolute duration-300 ease-in-out -translate-x-1/2 -translate-y-1/2 top-1/2 group-hover:-top-10 left-1/2">
               See My CV
             </span>
             <Download className="absolute duration-300 ease-in-out -translate-x-1/2 -translate-y-1/2 top-15 group-hover:top-1/2 left-1/2" />
           </motion.button>
-          <motion.ul style={{ x: element2X }} className="flex gap-10">
+          <motion.ul
+            style={isDekstop ? { x: element2X } : {}}
+            className="flex lg:gap-10 gap-4 items-center justify-center"
+          >
             {socialLinks.map((item) => (
               <li
                 key={item.name}

@@ -47,6 +47,7 @@ export default function AnimatedText({ text, className }: Props) {
           </span>
         ))}
       </motion.span> */}
+
       <motion.p
         initial="hidden"
         whileInView="show"
@@ -59,11 +60,15 @@ export default function AnimatedText({ text, className }: Props) {
         className={`max-w-xl ${className}`}
         // style={style}
       >
-        {text.split("").map((char, i) => (
-          <span key={i} className="inline-block overflow-hidden">
-            <motion.span variants={charVariants} className="inline-block">
-              {char === " " ? "\u00A0" : char}
-            </motion.span>
+        {text.split(" ").map((word, wordIndex) => (
+          <span key={wordIndex} className="inline-block mr-1">
+            {word.split("").map((char, charIndex) => (
+              <span key={charIndex} className="inline-block overflow-hidden">
+                <motion.span variants={charVariants} className="inline-block">
+                  {char}
+                </motion.span>
+              </span>
+            ))}
           </span>
         ))}
       </motion.p>

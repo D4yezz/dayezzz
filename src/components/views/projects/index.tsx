@@ -1,6 +1,7 @@
 import { ProjectCard } from "@/components/layout/CardComponent/projectCard";
 import SeparatorSection from "@/components/layout/SeparatorSection";
 import Magnet from "@/components/ReactBites/Magnet";
+import useMediaQuery from "@/hooks/useMediaQuery";
 import { projects } from "@/utils/projects";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { FolderCode, Star } from "lucide-react";
@@ -8,6 +9,7 @@ import Link from "next/link";
 import { useRef } from "react";
 
 export default function Projects() {
+  const isDekstop = useMediaQuery("(min-width: 1024px)");
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -55,31 +57,35 @@ export default function Projects() {
               initial={{ x: 0 }}
               animate={{ x: "-100%" }}
               transition={{
-                duration: 200,
+                duration: isDekstop ? 200 : 100,
                 ease: "linear",
                 repeat: Infinity,
               }}
               style={{ opacity, y: divY }}
-              className="text-[12rem] font-sans font-semibold flex gap-26 tracking-tight whitespace-nowrap absolute top-1/2 -translate-y-1/2 left-0 z-0"
+              className="lg:text-[12rem] text-[8rem] font-sans font-semibold flex lg:gap-26 gap-8 tracking-tight whitespace-nowrap absolute top-1/2 -translate-y-1/2 left-0 z-0"
             >
               {Array.from({ length: 10 }).map((_, i) => (
                 <div
                   key={i}
-                  className="flex flex-row items-center gap-26 w-fit"
+                  className="flex flex-row items-center gap-8 lg:gap-26 w-fit"
                 >
                   FEATURED PROJECTS
-                  <Star size={120} fill="#d1d5dc" strokeWidth={0} />
+                  <Star
+                    size={isDekstop ? 120 : 80}
+                    fill="#d1d5dc"
+                    strokeWidth={0}
+                  />
                 </div>
               ))}
             </motion.div>
           </div>
 
-          <div className="relative w-full max-w-xl px-12 perspective-distant">
+          <div className="relative w-full lg:max-w-xl lg:px-12 perspective-distant">
             <motion.div
               style={{
                 y: card1Y,
                 opacity: card1Opacity,
-                x: card1X,
+                x: isDekstop ? card1X : 0,
                 rotateX: rotate1X,
                 scale: useTransform(
                   scrollYProgress,
@@ -93,7 +99,7 @@ export default function Projects() {
                 ),
                 transformStyle: "preserve-3d",
               }}
-              className="absolute top-0 left-0 z-10 w-120"
+              className="absolute top-0 left-0 lg:right-full right-0 mx-auto z-10 lg:w-120 w-[80vw]"
             >
               <ProjectCard
                 id={projects[idProject.projectOne].id}
@@ -123,7 +129,7 @@ export default function Projects() {
                 ),
                 transformStyle: "preserve-3d",
               }}
-              className="absolute top-0 z-20 -translate-x-1/2 left-1/2 w-120"
+              className="absolute top-0 z-20 -translate-x-1/2 left-1/2 lg:w-120 w-[80vw]"
             >
               <ProjectCard
                 id={projects[idProject.projectTwo].id}
@@ -139,7 +145,7 @@ export default function Projects() {
               style={{
                 y: card3Y,
                 opacity: card3Opacity,
-                x: card3X,
+                x: isDekstop ? card3X : 0,
                 rotateX: rotate3X,
                 scale: useTransform(
                   scrollYProgress,
@@ -153,7 +159,7 @@ export default function Projects() {
                 ),
                 transformStyle: "preserve-3d",
               }}
-              className="absolute top-0 right-0 z-30 w-120"
+              className="absolute top-0 right-0 lg:left-1/6 left-0 mx-auto z-30 lg:w-120 w-[80vw]"
             >
               <ProjectCard
                 id={projects[idProject.projectThree].id}

@@ -9,6 +9,7 @@ export const techStack = [
   { name: "Framer Motion", category: "Animation", url: "motion.png" },
   { name: "Lenis", category: "Scroll & UX", url: "lenis.png" },
   { name: "Supabase", category: "Backend / BaaS", url: "supabase.jpeg" },
+  { name: "Prisma", category: "Database ORM", url: "prisma.png" },
   { name: "MySQL", category: "Database", url: "mysql.png" },
   { name: "Playwright", category: "Testing", url: "playwright.png" },
   { name: "Git", category: "Version Control", url: "git.png" },

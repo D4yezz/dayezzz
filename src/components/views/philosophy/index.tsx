@@ -14,8 +14,8 @@ export default function Philosophy({
   const opacity = useTransform(scrollYProgress, [0, 0.1], [0, 1]);
   const titleX = useTransform(scrollYProgress, [0.5, 0.8], [-100, 0]);
   const textX = useTransform(scrollYProgress, [0.5, 0.8], [200, 0]);
-  const titleMobile = useTransform(scrollYProgress, [0.2, 0.8], [-450, 0]);
-  const textMobile = useTransform(scrollYProgress, [0.2, 0.8], [450, 0]);
+  const titleMobile = useTransform(scrollYProgress, [0.1, 0.9], [100, 0]);
+  const textMobile = useTransform(scrollYProgress, [0.2, 0.8], [100, 0]);
 
   const contentOpacity = useTransform(scrollYProgress, [0.55, 0.7], [0, 1]);
 
@@ -105,7 +105,8 @@ export default function Philosophy({
       <div className="relative z-10 flex flex-col items-center justify-center w-full py-4 mx-auto lg:gap-8 lg:justify-between lg:flex-row">
         <motion.h1
           style={{
-            x: isDekstop ? titleX : titleMobile,
+            x: isDekstop ? titleX : 0,
+            y: isDekstop ? 0 : titleMobile,
             opacity: contentOpacity,
           }}
           className="lg:text-[13rem] text-[6rem] lg:leading-52 font-geist-sans font-semibold flex items-end gap-2 tracking-tight"
@@ -120,7 +121,11 @@ export default function Philosophy({
         </motion.h1>
 
         <motion.p
-          style={{ x: isDekstop ? textX : textMobile, opacity: contentOpacity }}
+          style={{
+            x: isDekstop ? textX : 0,
+            y: isDekstop ? 0 : textMobile,
+            opacity: contentOpacity,
+          }}
           className="font-semibold lg:text-[2.3rem] text-[1.3rem] text-balance lg:text-right text-center lg:w-1/3 w-full lg:leading-10 leading-6"
         >
           Dayezzz is my creative alias, a name I use to express ideas and craft

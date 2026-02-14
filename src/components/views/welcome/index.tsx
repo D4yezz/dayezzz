@@ -18,7 +18,7 @@ export default function Welcome({
   const blur = useTransform(
     scrollYProgress,
     [0, 1],
-    ["blur(0px)", "blur(8px)"]
+    ["blur(0px)", "blur(8px)"],
   );
   return (
     <section className="relative top-0 flex flex-col items-center w-full h-screen px-8 overflow-y-hidden bg-gray-300 font-instrument-sans lg:px-16 md:sticky">
@@ -30,13 +30,13 @@ export default function Welcome({
           style={{ y: titleY }}
           className="w-full text-5xl font-bold text-center text-balance md:text-7xl lg:w-220"
         >
-          Hi, I&lsquo;m <Cover>Dayezzz</Cover> i turn ideas into interactive
-          web experiences.
+          Hi, I&lsquo;m <Cover>Dayezzz</Cover> i turn ideas into interactive web
+          experiences.
         </motion.h1>
         <motion.div style={{ y: subtitleY }}>
           <AnimatedText
-            text="Web Developer specializing in ReactJS & NextJS, crafting modern UI with smooth animations and clean architecture."
-            className="w-full text-xl font-medium text-center text-balance md:w-180 text-zinc-700"
+            text="Web Developer building scalable web applications with ReactJS & NextJS, from modern user interfaces to backend logic and integrations."
+            className="w-full text-xl font-medium text-center md:w-150 text-zinc-700"
           />
         </motion.div>
         <div className="flex gap-4">

@@ -42,8 +42,8 @@ export default function TechCard({
           exit={{ opacity: 0, scale: 0.6 }}
           transition={{
             type: "spring",
-            stiffness: 180,
-            damping: 20,
+            stiffness: 200,
+            damping: 15,
           }}
         />
       )}

@@ -51,7 +51,7 @@ export default function Skills() {
           <div className="absolute top-0 left-0 z-10 w-10 h-full md:w-40 bg-linear-to-r from-zinc-800 to-transparent " />
           <ScrollVelocity
             scrollerClassName="lg:text-[10rem] text-[4rem] lg:leading-34 leading-16"
-            texts={["frontend developer", "frontend developer"]}
+            texts={["fullstack developer", "fullstack developer"]}
             velocity={70}
             className="uppercase custom-scroll-text font-instrument-sans"
           />
