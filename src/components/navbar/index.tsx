@@ -6,17 +6,19 @@ import { useMenuStore } from "@/store/useMenuStore";
 import { handleMove, reset, useCursor } from "@/hooks/useCursor";
 import { useHoveredStore } from "@/store/useHoveredStore";
 import { useLenis } from "../providers/LenisProvider";
+import useMediaQuery from "@/hooks/useMediaQuery";
 
-const menu = [
+export const menu = [
   { name: "Home", href: "/" },
   { name: "About", href: "/about" },
-  { name: "Project", href: "/project" },
+  { name: "Projects", href: "/projects" },
   { name: "Contact", href: "/contact" },
 ];
 
-export default function Navbar() {
+export default function Navbar({ welcome = true }) {
   const { open, toggle } = useMenuStore();
   const cursor = useCursor();
+  const isDekstop = useMediaQuery("(min-width: 1024px)");
   const setVariant = cursor?.setVariant;
   const url = typeof window !== "undefined" ? window.location.pathname : "";
 
@@ -41,7 +43,9 @@ export default function Navbar() {
   };
 
   return (
-    <header className="flex lg:py-8 py-6 lg:px-16 px-8 font-inter w-full h-fit absolute z-10">
+    <header
+      className={`flex lg:py-8 py-6 lg:px-16 px-8 font-inter w-full h-fit z-10 ${welcome ? "absolute" : "fixed lg:bg-transparent bg-zinc-800"}`}
+    >
       <nav className="flex justify-between w-full items-start">
         <Link
           href="/"
@@ -97,7 +101,7 @@ export default function Navbar() {
                         onMouseLeave={onMouseLeave}
                         // onMouseLeave={()=>setHoveredIndex(null)}
                         data-cursor="box"
-                        className="relative cursor-box text-7xl w-fit py-4 px-12 overflow-hidden cursor-pointer hover:text-gray-800 duration-300 ease-in-out"
+                        className="relative cursor-box text-7xl w-fit py-4 px-12 overflow-hidden cursor-pointer hover:text-gray-800 duration-300 ease-in-out select-none"
                       >
                         <motion.div
                           className="absolute left-0 top-0 bottom-0 bg-gray-300 z-0"

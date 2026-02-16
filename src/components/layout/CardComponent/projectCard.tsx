@@ -34,7 +34,7 @@ export function ProjectCard({
       <div className="relative w-full group">
         <div
           onClick={() => {
-            if (isDekstop) router.push("/project/" + id);
+            if (isDekstop) router.push("/projects/" + id);
           }}
           className="block"
         >

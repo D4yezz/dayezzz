@@ -91,7 +91,8 @@ export default function Contact() {
           </Link>
         </motion.div>
         <motion.div
-          style={isDekstop ? { opacity } : { opacity, y: element1Y }}
+          style={isDekstop ? { opacity, y: 0 } : { opacity, y: element1Y }}
+          // style={{ opacity } }
           className="lg:w-[75%] lg:gap-0 gap-8 w-full flex lg:flex-row flex-col lg:justify-between justify-center items-center z-10"
         >
           <motion.button

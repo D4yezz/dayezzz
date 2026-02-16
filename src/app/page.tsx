@@ -17,7 +17,7 @@ export default function Home() {
     offset: ["start start", "end end"],
   });
   return (
-    <section className="relative w-full text-zinc-800 bg-zinc-800">
+    <main className="relative w-full text-zinc-800 bg-zinc-800">
       <Navbar />
       <section
         ref={welcomeRef}
@@ -31,6 +31,6 @@ export default function Home() {
       <Projects />
       <Contact />
       <Footer />
-    </section>
+    </main>
   );
 }

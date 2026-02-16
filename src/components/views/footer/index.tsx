@@ -1,14 +1,15 @@
+import { menu } from "@/components/navbar";
 import useMediaQuery from "@/hooks/useMediaQuery";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Link from "next/link";
 import { useRef } from "react";
 
-const navigation = [
-  { name: "Home", href: "/" },
-  { name: "About", href: "/about" },
-  { name: "Portfolio", href: "/portfolio" },
-  { name: "Contact", href: "/contact" },
-];
+// const navigation = [
+//   { name: "Home", href: "/" },
+//   { name: "About", href: "/about" },
+//   { name: "Portfolio", href: "/portfolio" },
+//   { name: "Contact", href: "/contact" },
+// ];
 
 export default function Footer() {
   const isDekstop = useMediaQuery("(min-width: 1024px)");
@@ -60,7 +61,7 @@ export default function Footer() {
           </li>
         </ul>
         <div className="flex lg:flex-col flex-row justify-between items-end font-medium lg:bg-transparent bg-gray-300 text-zinc-800 lg:text-[2rem] text-[1.4rem] lg:h-full h-fit px-6 w-full">
-          {navigation.map((item) => (
+          {menu.map((item) => (
             <Link
               key={item.name}
               href={item.href}

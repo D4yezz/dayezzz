@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Cover } from "@/components/ui/cover";
 import { motion, MotionValue, useTransform } from "framer-motion";
 import { Code, Send } from "lucide-react";
+import Link from "next/link";
 
 export default function Welcome({
   scrollYProgress,
@@ -44,8 +45,13 @@ export default function Welcome({
             <Send size={18} />
             Let&lsquo;s Work Together
           </Button>
-          <Button className="h-10 font-semibold bg-gray-300 border cursor-pointer md:w-60 text-zinc-800 border-zinc-800 hover:bg-zinc-800 hover:text-gray-300">
-            <Code size={18} /> View Projects
+          <Button
+            asChild
+            className="h-10 font-semibold bg-gray-300 border cursor-pointer md:w-60 text-zinc-800 border-zinc-800 hover:bg-zinc-800 hover:text-gray-300"
+          >
+            <Link href="/projects">
+              <Code size={18} /> View Projects
+            </Link>
           </Button>
         </div>
       </motion.div>
