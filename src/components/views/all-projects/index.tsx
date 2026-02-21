@@ -21,13 +21,13 @@ export default function AllProjects() {
         <div className="lg:invisible visible w-[90%] rounded-full mx-auto h-px bg-linear-to-r from-zinc-700/40 via-gray-300/90 to-zinc-700/40 my-12" />
       )}
       <div className="lg:w-2/3 w-full lg:px-36 px-8 lg:py-32 space-y-20">
-        {projects.map((project, i) => (
+        {projects.map((project) => (
           <CardSimple
-            key={i}
+            key={project.id}
             id={project.id}
             title={project.name}
             description={project.description}
-            image={project.image}
+            image={project.images[0]}
             tags={project.tags}
             year={project.year}
           />

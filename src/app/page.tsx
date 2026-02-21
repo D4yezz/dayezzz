@@ -1,12 +1,12 @@
 "use client";
-import Navbar from "@/components/navbar";
-import Welcome from "@/components/views/welcome";
-import Philosophy from "@/components/views/philosophy";
-import Skills from "@/components/views/skills";
-import Tech from "@/components/views/tech";
+import Navbar from "@/components/layout/navbar";
+import Welcome from "@/components/views/home-page/welcome";
+import Philosophy from "@/components/views/home-page/philosophy";
+import Skills from "@/components/views/home-page/skills";
+import Tech from "@/components/views/home-page/tech";
 import { useRef } from "react";
 import { useScroll } from "framer-motion";
-import Projects from "@/components/views/projects";
+import Projects from "@/components/views/home-page/projects";
 import Contact from "@/components/views/contact";
 import Footer from "@/components/views/footer";
 

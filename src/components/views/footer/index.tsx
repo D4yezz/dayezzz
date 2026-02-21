@@ -1,4 +1,4 @@
-import { menu } from "@/components/navbar";
+import { menu } from "@/components/layout/navbar";
 import useMediaQuery from "@/hooks/useMediaQuery";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Link from "next/link";

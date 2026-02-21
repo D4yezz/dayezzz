@@ -1,7 +1,8 @@
 "use client";
-import Navbar from "@/components/navbar";
+import Navbar from "@/components/layout/navbar";
 import GradualBlurMemo from "@/components/ReactBites/GradualBlur";
 import AllProjects from "@/components/views/all-projects";
+import Contact from "@/components/views/contact";
 import Footer from "@/components/views/footer";
 import { useScroll, useTransform, motion } from "framer-motion";
 import { useRef } from "react";
@@ -18,12 +19,13 @@ export default function ProjectsPage() {
     <main ref={refPage} className="relative w-full text-gray-300 bg-zinc-800">
       <Navbar welcome={false} />
       <AllProjects />
+      {/* <Contact /> */}
       <Footer />
       <motion.div style={{ opacity: blurOpacity }}>
         <GradualBlurMemo
           target="page"
           position="bottom"
-          height="7rem"
+          height="6rem"
           strength={2}
           divCount={5}
           curve="bezier"

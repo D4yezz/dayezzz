@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import { useMenuStore } from "@/store/useMenuStore";
 import { handleMove, reset, useCursor } from "@/hooks/useCursor";
 import { useHoveredStore } from "@/store/useHoveredStore";
-import { useLenis } from "../providers/LenisProvider";
+import { useLenis } from "../../providers/LenisProvider";
 import useMediaQuery from "@/hooks/useMediaQuery";
 
 export const menu = [
@@ -44,7 +44,7 @@ export default function Navbar({ welcome = true }) {
 
   return (
     <header
-      className={`flex lg:py-8 py-6 lg:px-16 px-8 font-inter w-full h-fit z-10 ${welcome ? "absolute" : "fixed lg:bg-transparent bg-zinc-800"}`}
+      className={`flex lg:py-8 py-6 lg:px-16 px-8 font-inter w-full h-fit z-40 ${welcome ? "absolute" : "fixed lg:bg-transparent bg-zinc-800"}`}
     >
       <nav className="flex justify-between w-full items-start">
         <Link
@@ -112,6 +112,7 @@ export default function Navbar({ welcome = true }) {
                           transition={{ duration: 0.45, ease: "easeInOut" }}
                         />
                         <Link
+                          onClick={toggle}
                           href={item.href}
                           className="relative z-10 cursor-pointer"
                         >

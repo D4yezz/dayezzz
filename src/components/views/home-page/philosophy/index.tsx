@@ -130,7 +130,7 @@ export default function Philosophy({
         >
           Dayezzz is my creative alias, a name I use to express ideas and craft
           digital experiences. Beyond the screen, my real name is
-          <span className="ml-2 font-bold">Dias Adi</span>
+          <span className="ml-2 font-bold">Dias</span>
         </motion.p>
       </div>
     </motion.section>

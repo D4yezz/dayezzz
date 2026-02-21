@@ -105,7 +105,7 @@ export default function Projects() {
                 id={projects[idProject.projectOne].id}
                 title={projects[idProject.projectOne].name}
                 description={projects[idProject.projectOne].description}
-                image={projects[idProject.projectOne].image}
+                image={projects[idProject.projectOne].images[0]}
                 tags={projects[idProject.projectOne].tags}
                 year={projects[idProject.projectOne].year}
               />
@@ -135,7 +135,7 @@ export default function Projects() {
                 id={projects[idProject.projectTwo].id}
                 title={projects[idProject.projectTwo].name}
                 description={projects[idProject.projectTwo].description}
-                image={projects[idProject.projectTwo].image}
+                image={projects[idProject.projectTwo].images[0]}
                 tags={projects[idProject.projectTwo].tags}
                 year={projects[idProject.projectTwo].year}
               />
@@ -165,7 +165,7 @@ export default function Projects() {
                 id={projects[idProject.projectThree].id}
                 title={projects[idProject.projectThree].name}
                 description={projects[idProject.projectThree].description}
-                image={projects[idProject.projectThree].image}
+                image={projects[idProject.projectThree].images[0]}
                 tags={projects[idProject.projectThree].tags}
                 year={projects[idProject.projectThree].year}
               />

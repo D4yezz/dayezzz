@@ -9,7 +9,6 @@ import { useRouter } from "next/navigation";
 import { ReactNode } from "react";
 
 interface CardSimpleProps {
-  key: number;
   id: number;
   title: string;
   description: string;
@@ -20,7 +19,6 @@ interface CardSimpleProps {
 }
 
 export function CardSimple({
-  key,
   id,
   title,
   description,
@@ -31,7 +29,7 @@ export function CardSimple({
   const router = useRouter();
   const isDekstop = useMediaQuery("(min-width: 1024px)");
   return (
-    <div className="relative w-full group" key={key}>
+    <div className="relative w-full group" key={id}>
       <div
         onClick={() => {
           if (isDekstop) router.push("/projects/" + id);
@@ -41,12 +39,13 @@ export function CardSimple({
         <div className="relative w-full overflow-hidden transition-all duration-300 border rounded-2xl bg-zinc-800 backdrop-blur-sm border-gray-600/30 group-hover:border-gray-600/60 shadow-2xl">
           <div className="absolute top-0 left-0 right-0 h-px bg-linear-to-r from-transparent via-gray-500/50 to-transparent" />
 
-          <div className="relative overflow-hidden aspect-video bg-zinc-800">
+          <div className="relative overflow-hidden w-full h-80 bg-zinc-800">
             <Image
               src={image}
               alt={title}
-              fill
-              className="object-cover transition-all duration-500 ease-out grayscale-100 group-hover:grayscale-0 group-hover:scale-105"
+              width={800}
+              height={800}
+              className="object-cover w-full h-full transition-all duration-500 ease-out grayscale-100 group-hover:grayscale-0 group-hover:scale-105"
               loading="lazy"
             />
 
@@ -94,9 +93,9 @@ export function CardSimple({
               </div>
               <div
                 onClick={() => {
-                  if (!isDekstop) router.push("/project/" + id);
+                  if (!isDekstop) router.push("/projects/" + id);
                 }}
-                className="flex items-center gap-2 text-gray-500 transition-colors duration-300 group-hover:text-gray-400"
+                className="flex items-center gap-2 text-gray-500 transition-colors duration-300 group-hover:text-gray-400 select-none cursor-pointer"
               >
                 <span className="text-xs font-medium">VIEW PROJECT</span>
                 <motion.div
