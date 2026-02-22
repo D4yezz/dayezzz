@@ -22,15 +22,17 @@ export default function AllProjects() {
       )}
       <div className="lg:w-2/3 w-full lg:px-36 px-8 lg:py-32 space-y-20">
         {projects.map((project) => (
-          <CardSimple
-            key={project.id}
-            id={project.id}
-            title={project.name}
-            description={project.description}
-            image={project.images[0]}
-            tags={project.tags}
-            year={project.year}
-          />
+          <div key={project.id} className="w-full h-[85vh]">
+            <CardSimple
+              key={project.id}
+              id={project.id}
+              title={project.name}
+              description={project.description}
+              image={project.images[0]}
+              tags={project.tags}
+              year={project.year}
+            />
+          </div>
         ))}
       </div>
     </section>

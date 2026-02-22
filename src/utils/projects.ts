@@ -163,8 +163,6 @@ export const projects = [
       "Secure User Authentication system with distinct Admin and Customer roles",
       "Interactive Admin Dashboard with data visualization for real-time sales monitoring",
       "Robust Management System for seamless product inventory and order handling",
-      "Geospatial Integration using Google Maps API for precise delivery address selection",
-      "Personalized Customer Portal for tracking order history and transaction status",
     ],
     images: [
       "/projects/dayezzz/1.png",

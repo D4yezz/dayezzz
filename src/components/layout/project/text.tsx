@@ -82,7 +82,7 @@ export default function TextProject({ project }: { project: Project }) {
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.4, delay: 0.3 + index * 0.05 }}
-                  className="px-3 py-1.5 text-xs font-mono bg-zinc-700/50 border border-zinc-600/50 rounded text-zinc-300 hover:bg-zinc-600/50 hover:border-zinc-500/60 transition-all duration-300"
+                  className="px-3 py-1.5 text-xs select-none font-mono bg-zinc-700/50 border border-zinc-600/50 rounded text-zinc-300 hover:bg-zinc-600/50 hover:border-zinc-500/60 transition-all duration-300"
                 >
                   {tag}
                 </motion.span>
