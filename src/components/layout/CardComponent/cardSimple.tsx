@@ -37,20 +37,20 @@ export function CardSimple({
       >
         <div className="absolute top-0 left-0 right-0 h-px bg-linear-to-r from-transparent via-gray-500/50 to-transparent" />
 
-        <div className="relative overflow-hidden w-full h-[60%] bg-zinc-800">
+        <div className="relative overflow-hidden w-full lg:h-[60%] h-[45%] bg-zinc-800">
           <Image
             src={image}
             alt={title}
             width={800}
             height={800}
-            className="object-cover w-full h-full transition-all duration-500 ease-out grayscale-100 group-hover:grayscale-0 group-hover:scale-105"
+            className="object-cover w-full h-full transition-all duration-500 ease-out grayscale-75 group-hover:grayscale-0 group-hover:scale-105"
             loading="lazy"
           />
 
           <div className="absolute inset-0 transition-opacity duration-300 bg-linear-to-t from-zinc-800 via-transparent to-transparent opacity-60 group-hover:opacity-40" />
         </div>
-        <div className="flex flex-col justify-between h-[40%] p-5 md:p-6">
-          <div className="flex flex-col justify-start gap-4">
+        <div className="flex flex-col justify-between lg:h-[40%] h-[55%] p-5 md:p-6">
+          <div className="flex flex-col justify-start lg:gap-4 gap-2">
             <div className="relative w-fit">
               <h2 className="text-xl font-semibold text-gray-300 transition-colors duration-300 md:text-2xl font-geist-sans group-hover:text-gray-100">
                 {title}

@@ -13,9 +13,9 @@ import "./globals.css";
 import { CursorProvider } from "@/hooks/useCursor";
 import CustomCursor from "@/components/ui/customCursor";
 import LenisProvider from "@/components/providers/LenisProvider";
-import { config } from '@fortawesome/fontawesome-svg-core'
-import '@fortawesome/fontawesome-svg-core/styles.css'
-config.autoAddCss = false
+import { config } from "@fortawesome/fontawesome-svg-core";
+import "@fortawesome/fontawesome-svg-core/styles.css";
+config.autoAddCss = false;
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -71,7 +71,6 @@ export const metadata: Metadata = {
     "NextJS",
     "TailwindCSS",
     "TypeScript",
-    "Dias Adi",
     "Dias",
     "Adi",
     "Dayezzz",

@@ -128,11 +128,11 @@ export const projects = [
     ],
 
     images: [
+      "/projects/pentol-ngetop/5.png",
       "/projects/pentol-ngetop/1.png",
       "/projects/pentol-ngetop/2.png",
       "/projects/pentol-ngetop/3.png",
       "/projects/pentol-ngetop/4.png",
-      "/projects/pentol-ngetop/5.png",
       "/projects/pentol-ngetop/6.png",
       "/projects/pentol-ngetop/7.png",
       "/projects/pentol-ngetop/8.png",

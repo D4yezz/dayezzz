@@ -115,7 +115,7 @@ export default function Footer() {
           <p className="text-sm text-gray-300">
             © {year} Dias Adi. All rights reserved.
           </p>
-          <p className="text-sm text-gray-300">Designed & Built by Dias Adi</p>
+          <p className="text-sm text-gray-300">Designed & Built by Dias</p>
         </div>
       </motion.div>
     </footer>

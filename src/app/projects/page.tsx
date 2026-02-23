@@ -1,5 +1,6 @@
 "use client";
 import Navbar from "@/components/layout/navbar";
+import SeparatorLinear from "@/components/layout/SeparatorSection/separatorLinear";
 import GradualBlurMemo from "@/components/ReactBites/GradualBlur";
 import AllProjects from "@/components/views/all-projects";
 import Contact from "@/components/views/contact";
@@ -19,7 +20,8 @@ export default function ProjectsPage() {
     <main ref={refPage} className="relative w-full text-gray-300 bg-zinc-800">
       <Navbar welcome={false} />
       <AllProjects />
-      {/* <Contact /> */}
+      <SeparatorLinear />
+      <Contact />
       <Footer />
       <motion.div style={{ opacity: blurOpacity }}>
         <GradualBlurMemo

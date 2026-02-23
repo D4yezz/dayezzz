@@ -1,6 +1,6 @@
 export const techStack = [
-  { name: "React", category: "Frontend Library", url: "react.png" },
-  { name: "Next.js", category: "React Framework", url: "nextjs.png" },
+  { name: "ReactJS", category: "Frontend Library", url: "react.png" },
+  { name: "NextJS", category: "React Framework", url: "nextjs.png" },
   { name: "JavaScript", category: "Language", url: "javascript.png" },
   { name: "TypeScript", category: "Language", url: "typescript.png" },
   { name: "Tailwind CSS", category: "Styling", url: "tailwind.png" },

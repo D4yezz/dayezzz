@@ -60,7 +60,7 @@ export default function Contact() {
   const scale = useTransform(scrollYProgress, [0.5, 1], [1, 0.5]);
   const blur = useTransform(
     scrollYProgress,
-    [0, 0.4, 0.5, 1],
+    [0, 0.4, 0.55, 1],
     ["blur(6px)", "blur(0px)", "blur(0px)", "blur(8px)"],
   );
   const element1X = useTransform(scrollYProgress, [0, 0.8], [-100, 0]);
@@ -96,12 +96,12 @@ export default function Contact() {
           className="lg:w-[75%] lg:gap-0 gap-8 w-full flex lg:flex-row flex-col lg:justify-between justify-center items-center z-10"
         >
           <motion.button
-            onClick={() => {
-              const link = document.createElement("a");
-              link.href = "/5.png";
-              link.setAttribute("download", "5.png");
-              link.click();
-            }}
+            // onClick={() => {
+            //   const link = document.createElement("a");
+            //   link.href = "/5.png";
+            //   link.setAttribute("download", "5.png");
+            //   link.click();
+            // }}
             style={isDekstop ? { x: element1X } : {}}
             className="relative flex flex-col items-center justify-center w-2/4 py-5 overflow-hidden font-medium duration-200 ease-in-out cursor-pointer lg:px-8 lg:py-6 lg:text-xl group border-y-2 lg:w-60 h-fit border-zinc-800 hover:bg-zinc-800 hover:text-gray-300"
           >
