@@ -7,8 +7,8 @@ import Tech from "@/components/views/home-page/tech";
 import { useRef } from "react";
 import { useScroll } from "framer-motion";
 import Projects from "@/components/views/home-page/projects";
-import Contact from "@/components/views/contact";
 import Footer from "@/components/views/footer";
+import CallToAction from "@/components/views/cta";
 
 export default function Home() {
   const welcomeRef = useRef<HTMLDivElement>(null);
@@ -29,7 +29,7 @@ export default function Home() {
       <Skills />
       <Tech />
       <Projects />
-      <Contact />
+      <CallToAction />
       <Footer />
     </main>
   );

@@ -4,7 +4,7 @@ import HeaderProject from "@/components/layout/project/header";
 import SeparatorLinear from "@/components/layout/SeparatorSection/separatorLinear";
 import MoreProject from "@/components/views/all-projects/more-project";
 import Project from "@/components/views/all-projects/project";
-import Contact from "@/components/views/contact";
+import CallToAction from "@/components/views/cta";
 import Footer from "@/components/views/footer";
 
 export default function ProjectPage() {
@@ -16,7 +16,7 @@ export default function ProjectPage() {
       <Project />
       <SeparatorLinear />
       <MoreProject />
-      <Contact />
+      <CallToAction />
       <Footer />
     </main>
   );

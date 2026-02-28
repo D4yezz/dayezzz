@@ -1,3 +1,4 @@
+import CarouselFooter from "@/components/layout/CarouselFooter";
 import { menu } from "@/components/layout/navbar";
 import useMediaQuery from "@/hooks/useMediaQuery";
 import { motion, useScroll, useTransform } from "framer-motion";
@@ -60,12 +61,12 @@ export default function Footer() {
             <div className="w-0 group-hover:w-[103%] h-1 bg-gray-300 duration-300 ease-in-out" />
           </li>
         </ul>
-        <div className="flex lg:flex-col flex-row justify-between items-end font-medium lg:bg-transparent bg-gray-300 text-zinc-800 lg:text-[2rem] text-[1.4rem] lg:h-full h-fit px-6 w-full">
+        <div className="flex flex-col lg:gap-0 gap-4 justify-between items-center lg:items-end font-medium text-zinc-800 lg:text-[2rem] text-[1.4rem] lg:h-full h-fit lg:px-6 w-full">
           {menu.map((item) => (
             <Link
               key={item.name}
               href={item.href}
-              className="relative flex flex-col overflow-hidden lg:text-gray-300 group lg:w-34 w-fit lg:h-1/4"
+              className="relative flex flex-col overflow-hidden lg:text-gray-300 lg:bg-transparent bg-gray-300 group lg:w-34 w-full lg:h-1/4 lg:py-0 py-2"
             >
               {isDekstop ? (
                 <>
@@ -77,7 +78,7 @@ export default function Footer() {
                   </div>
                 </>
               ) : (
-                <>{item.name}</>
+                <CarouselFooter menu={item.name} />
               )}
             </Link>
           ))}

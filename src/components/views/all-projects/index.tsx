@@ -5,7 +5,7 @@ import { projects } from "@/utils/projects";
 export default function AllProjects() {
   const isDekstop = useMediaQuery("(min-width: 1024px)");
   return (
-    <section className="flex lg:flex-row flex-col min-h-screen">
+    <section className="flex lg:flex-row flex-col min-h-screen lg:pb-0 pb-14">
       <div className="lg:w-1/3 w-full lg:px-16 px-8 lg:py-22 pt-26 flex items-end">
         <div className="sticky bottom-28 lg:space-y-6 space-y-3">
           <h1 className="lg:text-[5.5rem] text-7xl font-bold lg:leading-23 font-geist-sans">

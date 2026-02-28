@@ -6,8 +6,8 @@ import SkillsExpertise from "@/components/views/about/skills-expertise";
 // import Certificates from "@/components/views/about/certificates";
 // import Awards from "@/components/views/about/awards";
 import Footer from "@/components/views/footer";
-import Contact from "@/components/views/contact";
 import Experiences from "@/components/views/about/experiences";
+import CallToAction from "@/components/views/cta";
 
 export default function AboutPage() {
   return (
@@ -19,7 +19,7 @@ export default function AboutPage() {
       <Experiences />
       {/* <Certificates />
       <Awards /> */}
-      <Contact />
+      <CallToAction />
       <Footer />
     </main>
   );

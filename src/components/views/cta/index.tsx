@@ -48,7 +48,7 @@ const socialLinks = [
   },
 ];
 
-export default function Contact() {
+export default function CallToAction() {
   const isDekstop = useMediaQuery("(min-width: 1024px)");
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({
@@ -70,11 +70,11 @@ export default function Contact() {
   return (
     <section
       ref={ref}
-      className="relative flex items-center justify-center w-full h-screen p-4 overflow-hidden lg:p-12 font-geist-sans bg-zinc-800"
+      className="relative flex items-center justify-center w-full h-screen p-0 overflow-hidden lg:p-12 font-geist-sans bg-zinc-800"
     >
       <motion.div
         style={{ filter: blur }}
-        className="w-full h-full flex flex-col lg:gap-20 gap-4 items-center justify-center bg-gray-300 text-zinc-800 inset-shadow-[0px_0px_8px] inset-shadow-zinc-800 rounded-sm"
+        className="w-full h-full flex flex-col lg:gap-20 gap-4 items-center justify-center bg-gray-300 text-zinc-800 inset-shadow-[0px_0px_8px] inset-shadow-zinc-800 lg:rounded-sm"
       >
         <motion.div
           style={{ scale, opacity, y: headingY }}

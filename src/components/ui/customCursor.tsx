@@ -108,7 +108,7 @@ export default function CustomCursor() {
 
       {rect && (
         <motion.div
-          className="fixed top-0 left-0 pointer-events-none z-9998 border-2 border-white"
+          className="fixed top-0 left-0 pointer-events-none z-9998 lg:border-2 border-white"
           initial={{ opacity: 0, x: mouse.x, y: mouse.y, width: 0, height: 0 }}
           animate={{
             x: rect.left,
