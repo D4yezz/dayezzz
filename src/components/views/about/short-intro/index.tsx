@@ -89,7 +89,7 @@ export default function ShortIntro() {
             >
               {[
                 { number: projects.length, label: "Projects" },
-                { number: yearsLearning + "+", label: "Years Learning" },
+                { number: yearsLearning + "+", label: "Years of Experience" },
                 { number: "∞", label: "Curiosity" },
               ].map((stat, i) => (
                 <div key={i} className="flex flex-col gap-1 font-inter">

@@ -7,6 +7,7 @@ import SkillsExpertise from "@/components/views/about/skills-expertise";
 // import Awards from "@/components/views/about/awards";
 import Footer from "@/components/views/footer";
 import Contact from "@/components/views/contact";
+import Experiences from "@/components/views/about/experiences";
 
 export default function AboutPage() {
   return (
@@ -15,6 +16,7 @@ export default function AboutPage() {
       <AboutHero />
       <ShortIntro />
       <SkillsExpertise />
+      <Experiences />
       {/* <Certificates />
       <Awards /> */}
       <Contact />
