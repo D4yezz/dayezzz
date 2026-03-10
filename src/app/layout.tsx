@@ -15,6 +15,7 @@ import CustomCursor from "@/components/ui/customCursor";
 import LenisProvider from "@/components/providers/LenisProvider";
 import { config } from "@fortawesome/fontawesome-svg-core";
 import "@fortawesome/fontawesome-svg-core/styles.css";
+import LoadingScreen from "@/components/layout/PageTransition/LoadingScreen";
 config.autoAddCss = false;
 
 const geistSans = Geist({
@@ -90,6 +91,7 @@ export default function RootLayout({
       >
         <LenisProvider>
           <CursorProvider>
+            <LoadingScreen />
             <CustomCursor />
             {children}
           </CursorProvider>

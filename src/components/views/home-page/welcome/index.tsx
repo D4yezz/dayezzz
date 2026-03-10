@@ -41,9 +41,14 @@ export default function Welcome({
           />
         </motion.div>
         <div className="flex gap-4">
-          <Button className="h-10 font-semibold text-gray-300 border cursor-pointer md:w-60 bg-zinc-800 hover:bg-zinc-900 border-zinc-800 hover:text-white">
-            <Send size={18} />
-            Let&lsquo;s Work Together
+          <Button
+            asChild
+            className="h-10 font-semibold text-gray-300 border cursor-pointer md:w-60 bg-zinc-800 hover:bg-zinc-900 border-zinc-800 hover:text-white"
+          >
+            <Link href={"/contact"}>
+              <Send size={18} />
+              Let&lsquo;s Work Together
+            </Link>
           </Button>
           <Button
             asChild
