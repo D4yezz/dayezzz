@@ -46,10 +46,10 @@ export default function Navbar({ welcome = true }) {
     <header
       className={`flex lg:py-8 py-6 lg:px-16 px-8 font-inter w-full h-fit z-40 ${welcome ? "absolute" : "fixed lg:bg-transparent bg-zinc-800"}`}
     >
-      <nav className="flex justify-between w-full items-start">
+      <nav className="flex items-start justify-between w-full">
         <Link
           href="/"
-          className="text-3xl font-bold font-instrument-sans cursor-pointer"
+          className="text-3xl font-bold cursor-pointer font-instrument-sans"
         >
           Dayezzz.
         </Link>
@@ -66,18 +66,41 @@ export default function Navbar({ welcome = true }) {
               }}
               exit={{ opacity: 0, x: -100 }}
               transition={{ duration: 0.5, ease: "easeInOut" }}
-              className="absolute top-0 left-0 w-full h-screen bg-zinc-800 text-gray-300 flex flex-col items-center justify-center p-12 "
+              className="absolute top-0 left-0 flex flex-col justify-center w-full h-screen p-8 text-gray-300 bg-zinc-800"
             >
-              <button
-                onClick={toggle}
-                className="absolute top-12 right-12 cursor-pointer"
+              {isDekstop ? (
+                <>
+                  <button
+                    onClick={toggle}
+                    className="absolute right-0 w-[5vw] duration-300 ease-in-out hover:w-[12vw] flex items-center group justify-center cursor-pointer bg-gray-300 text-zinc-800 h-dvh"
+                  >
+                    <span className="flex items-center justify-center w-full h-full">
+                      <div className="group-hover:w-1.5 w-1 h-1/12 group-hover:h-[90%] duration-300 ease-in-out bg-zinc-800 absolute rotate-27 group-hover:rotate-12 rounded-full" />
+                      <div className="group-hover:w-1.5 w-1 h-1/12 group-hover:h-[90%] duration-300 ease-in-out bg-zinc-800 absolute -rotate-27 group-hover:-rotate-12 rounded-full" />
+                    </span>
+                  </button>
+                </>
+              ) : (
+                <>
+                  <button
+                    onClick={toggle}
+                    className="absolute top-12 right-12 cursor-pointer"
+                  >
+                    <X size={40} className="cursor-pointer" />
+                  </button>
+                </>
+              )}
+
+              {/* <Link
+                href="/"
+                className="text-3xl font-bold cursor-pointer font-instrument-sans px-14"
               >
-                <X size={40} className="cursor-pointer" />
-              </button>
+                Dayezzz.
+              </Link> */}
               <motion.ul
                 exit={{ x: -100 }}
                 transition={{ duration: 0.5, ease: "easeInOut" }}
-                className="w-full h-full flex flex-col gap-2 font-poppins"
+                className="flex flex-col w-full h-full gap-2 font-poppins"
               >
                 {menu.map(
                   (item, index) =>
@@ -101,10 +124,10 @@ export default function Navbar({ welcome = true }) {
                         onMouseLeave={onMouseLeave}
                         // onMouseLeave={()=>setHoveredIndex(null)}
                         data-cursor="box"
-                        className="relative cursor-box text-7xl w-fit py-4 px-12 overflow-hidden cursor-pointer hover:text-gray-800 duration-300 ease-in-out select-none"
+                        className="relative px-12 py-4 overflow-hidden duration-300 ease-in-out cursor-pointer select-none cursor-box text-6xl w-fit hover:text-gray-800"
                       >
                         <motion.div
-                          className="absolute left-0 top-0 bottom-0 bg-gray-300 z-0"
+                          className="absolute top-0 bottom-0 left-0 z-0 lg:bg-gray-300"
                           initial={{ width: "0%" }}
                           animate={{
                             width: hoveredIndex === index ? "100%" : "0%",

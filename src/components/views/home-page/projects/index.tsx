@@ -17,7 +17,11 @@ export default function Projects() {
   });
 
   const divY = useTransform(scrollYProgress, [0, 0.2], [200, 0]);
-  const opacity = useTransform(scrollYProgress, [0, 0.15], [0, 1]);
+  const opacity = useTransform(
+    scrollYProgress,
+    [0, 0.15, 0.8, 1],
+    [0, 1, 1, 0],
+  );
 
   const card1Y = useTransform(scrollYProgress, [0.2, 0.35], [200, 0]);
   const card1Opacity = useTransform(scrollYProgress, [0.2, 0.25], [0, 1]);
@@ -43,7 +47,7 @@ export default function Projects() {
       <section ref={ref} className="w-full relative h-[600vh] bg-zinc-800">
         <motion.div
           style={{ opacity, y: divY }}
-          className="sticky top-0 flex flex-col items-center w-full min-h-screen px-8 py-12 overflow-hidden font-sans text-gray-300"
+          className="fixed top-0 flex flex-col items-center w-full min-h-screen px-8 py-12 overflow-hidden font-sans text-gray-300"
         >
           <SeparatorSection
             scrollYProgress={scrollYProgress}
@@ -175,7 +179,7 @@ export default function Projects() {
       </section>
       <Link
         href={"/projects"}
-        className="w-[85%] text-gray-300 bg-zinc-800 flex items-center font-instrument-sans justify-center py-6 mb-8 mx-auto border-t border-gray-300"
+        className="w-full bg-gray-300 text-zinc-800 flex items-center font-instrument-sans justify-center py-6 mx-auto border-t border-gray-300 z-80 relative"
       >
         <Magnet
           paddingX={300}
@@ -183,7 +187,7 @@ export default function Projects() {
           disabled={false}
           magnetStrength={10}
         >
-          <h3 className="flex items-center gap-2 text-xl">
+          <h3 className="flex items-center gap-2 text-xl font-semibold">
             <FolderCode strokeWidth={2} size={24} />
             View all projects
           </h3>

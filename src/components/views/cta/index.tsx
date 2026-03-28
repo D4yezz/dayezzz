@@ -70,7 +70,7 @@ export default function CallToAction() {
   return (
     <section
       ref={ref}
-      className="relative flex items-center justify-center w-full h-screen p-0 overflow-hidden lg:p-12 font-geist-sans bg-zinc-800"
+      className="relative flex items-center justify-center w-full h-screen p-0 pt-12 overflow-hidden lg:pb-12 lg:pt-20 lg:px-12 font-geist-sans bg-zinc-800"
     >
       <motion.div
         style={{ filter: blur }}

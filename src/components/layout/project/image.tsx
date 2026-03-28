@@ -75,7 +75,7 @@ export default function ImageProject({ project }: { project: Project }) {
 
           <div className="flex items-center justify-center gap-4 pt-8">
             <div className="w-30 h-[1.5px] bg-linear-to-l from-zinc-500 to-transparent" />
-            <span className="text-[0.8rem] font-mono tracking-[0.3em] uppercase text-gray-400">
+            <span className="text-[0.8rem] font-mono tracking-[0.3em] text-center uppercase text-gray-400">
               End of gallery
             </span>
             <div className="w-30 h-[1.5px] bg-linear-to-r from-zinc-500 to-transparent" />
