@@ -3,10 +3,11 @@ import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { useMenuStore } from "@/store/useMenuStore";
-import { handleMove, reset, useCursor } from "@/hooks/useCursor";
+import { reset, useCursor } from "@/hooks/useCursor";
 import { useHoveredStore } from "@/store/useHoveredStore";
 import { useLenis } from "../../providers/LenisProvider";
 import useMediaQuery from "@/hooks/useMediaQuery";
+import LogoLoop from "@/components/ReactBites/LogoLoop";
 
 export const menu = [
   { name: "Home", href: "/" },
@@ -15,12 +16,24 @@ export const menu = [
   { name: "Contact", href: "/contact" },
 ];
 
+function textCloseComponent() {
+  return (
+    <span className="uppercase text-4xl rotate-90 font-semibold">close</span>
+  );
+}
+
+const textClose = [
+  { node: textCloseComponent(), title: "", href: "" },
+  { node: textCloseComponent(), title: "", href: "" },
+  { node: textCloseComponent(), title: "", href: "" },
+];
 export default function Navbar({ welcome = true }) {
   const { open, toggle } = useMenuStore();
   const cursor = useCursor();
   const isDekstop = useMediaQuery("(min-width: 1024px)");
   const setVariant = cursor?.setVariant;
   const url = typeof window !== "undefined" ? window.location.pathname : "";
+  const [hovered, setHovered] = useState(false);
 
   const { index: hoveredIndex, setIndex: setHoveredIndex } = useHoveredStore();
   const lenis = useLenis();
@@ -70,15 +83,41 @@ export default function Navbar({ welcome = true }) {
             >
               {isDekstop ? (
                 <>
-                  <button
+                  <motion.button
+                    onHoverStart={() => setHovered(true)}
+                    onHoverEnd={() => setHovered(false)}
                     onClick={toggle}
-                    className="absolute right-0 w-[5vw] duration-300 ease-in-out hover:w-[12vw] flex items-center group justify-center cursor-pointer bg-gray-300 text-zinc-800 h-dvh"
+                    className="absolute right-0 w-[5vw] duration-300 ease-in-out hover:w-[12vw] flex items-center group justify-center cursor-pointer bg-gray-300 text-zinc-800 h-dvh overflow-hidden"
                   >
-                    <span className="flex items-center justify-center w-full h-full">
-                      <div className="group-hover:w-1.5 w-1 h-1/12 group-hover:h-[90%] duration-300 ease-in-out bg-zinc-800 absolute rotate-27 group-hover:rotate-12 rounded-full" />
-                      <div className="group-hover:w-1.5 w-1 h-1/12 group-hover:h-[90%] duration-300 ease-in-out bg-zinc-800 absolute -rotate-27 group-hover:-rotate-12 rounded-full" />
-                    </span>
-                  </button>
+                    <motion.span
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: hovered ? 0 : 1 }}
+                      transition={{ duration: 0.3, ease: "easeInOut" }}
+                      className={`${hovered ? "absolute" : "relative"}`}
+                    >
+                      <LogoLoop
+                        logos={textClose}
+                        speed={50}
+                        direction="down"
+                        logoHeight={60}
+                        gap={85}
+                        hoverSpeed={0}
+                        scaleOnHover={false}
+                        fadeOut
+                        fadeOutColor="#d1d5dc"
+                        ariaLabel="Close Menu"
+                      />
+                    </motion.span>
+                    <motion.span
+                      initial={{ width: 0 }}
+                      animate={{ width: hovered ? "100%" : 0 }}
+                      transition={{ duration: 0.3, ease: "easeInOut" }}
+                      className="flex items-center justify-center w-full h-full bg-gray-300"
+                    >
+                      <div className="group-hover:w-1.5 w-0 h-1/12 group-hover:h-[90%] duration-300 ease-in-out bg-zinc-800 absolute rotate-12 rounded-full" />
+                      <div className="group-hover:w-1.5 w-0 h-1/12 group-hover:h-[90%] duration-300 ease-in-out bg-zinc-800 absolute -rotate-12 rounded-full" />
+                    </motion.span>
+                  </motion.button>
                 </>
               ) : (
                 <>

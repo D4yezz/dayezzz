@@ -1,10 +1,11 @@
 import DotGrid from "@/components/ReactBites/DotGrid";
+import { Button } from "@/components/ui/button";
 import TextHover from "@/components/ui/TextHover";
 import useMediaQuery from "@/hooks/useMediaQuery";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Download } from "lucide-react";
 import Link from "next/link";
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const socialLinks = [
   {
@@ -50,11 +51,18 @@ const socialLinks = [
 
 export default function CallToAction() {
   const isDekstop = useMediaQuery("(min-width: 1024px)");
+  const [showGreenDiv, setShowGreenDiv] = useState(false);
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start end", "end start"],
   });
+
+  useEffect(() => {
+    return scrollYProgress.onChange((value) => {
+      setShowGreenDiv(value >= 0.6);
+    });
+  }, [scrollYProgress]);
 
   const opacity = useTransform(scrollYProgress, [0, 0.4], [0, 1]);
   const scale = useTransform(scrollYProgress, [0.5, 1], [1, 0.5]);
@@ -67,6 +75,7 @@ export default function CallToAction() {
   const element1Y = useTransform(scrollYProgress, [0, 0.8], [200, 0]);
   const element2X = useTransform(scrollYProgress, [0, 0.8], [100, 0]);
   const headingY = useTransform(scrollYProgress, [0, 0.5], [-300, 0]);
+
   return (
     <section
       ref={ref}
@@ -136,6 +145,9 @@ export default function CallToAction() {
           activeColor="#27272a"
           className="opacity-50"
         />
+        {showGreenDiv && (
+          <motion.div className="bg-transparent w-full h-screen absolute inset-0 z-100" />
+        )}
       </motion.div>
     </section>
   );
