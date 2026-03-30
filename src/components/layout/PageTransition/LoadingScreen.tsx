@@ -6,11 +6,11 @@ function getGreeting() {
   const date = new Date();
   const hour = date.getHours();
 
-  if (hour < 12) {
+  if (hour < 12 && hour >= 5) {
     return "Good Morning";
-  } else if (hour < 17) {
+  } else if (hour < 17 && hour >= 12) {
     return "Good Afternoon";
-  } else if (hour < 20) {
+  } else if (hour < 20 && hour >= 17) {
     return "Good Evening";
   } else {
     return "Good Night";

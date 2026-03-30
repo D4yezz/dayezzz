@@ -2,8 +2,13 @@
 
 import SeparatorSection from "@/components/layout/SeparatorSection";
 import ScrollVelocity from "@/components/ReactBites/ScrollVelocity";
-import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
+import {
+  motion,
+  useMotionValueEvent,
+  useScroll,
+  useTransform,
+} from "framer-motion";
+import { useEffect, useRef, useState } from "react";
 
 const skills = [
   {
@@ -29,8 +34,17 @@ export default function Skills() {
     target: ref,
     offset: ["start start", "end end"],
   });
+  const [fixed, setFixed] = useState(false);
 
-  const opacity = useTransform(scrollYProgress, [0, 0.2, 0.9, 1], [0, 1, 1, 0]);
+  useMotionValueEvent(scrollYProgress, "change", (v) => {
+    if (v > 0.001 && v < 0.98) {
+      setFixed(true);
+    } else {
+      setFixed(false);
+    }
+  });
+
+  const opacity = useTransform(scrollYProgress, [0, 0.4, 0.9, 1], [0, 1, 1, 0]);
   const y = useTransform(scrollYProgress, [0.2, 0.7], [120, -120]);
 
   const card2Y = useTransform(scrollYProgress, [0.15, 0.45], [100, 0]);
@@ -39,7 +53,9 @@ export default function Skills() {
     <section ref={ref} className="relative lg:h-[430vh] h-[400vh] bg-zinc-800">
       <motion.section
         style={{ y, opacity }}
-        className={`fixed top-0 flex flex-col items-center justify-center w-full px-8 py-24 overflow-hidden text-gray-300 h-fit font-instrument-sans bg-zinc-800`}
+        className={`${
+          fixed ? "fixed top-0" : "absolute top-0"
+        } flex flex-col items-center justify-center w-full px-8 py-24 overflow-hidden text-gray-300 h-fit font-instrument-sans bg-zinc-800`}
       >
         <SeparatorSection
           scrollYProgress={scrollYProgress}
