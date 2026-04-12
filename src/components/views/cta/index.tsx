@@ -7,7 +7,7 @@ import { Download } from "lucide-react";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 
-const socialLinks = [
+export const socialLinks = [
   {
     name: "GitHub",
     href: "https://github.com/D4yezz",

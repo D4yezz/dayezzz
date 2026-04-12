@@ -204,7 +204,7 @@ export default function Projects() {
       </section>
       <Link
         href={"/projects"}
-        className="w-full bg-gray-300 text-zinc-800 flex items-center font-instrument-sans justify-center py-6 mx-auto border-t border-gray-300 z-80 relative"
+        className="w-full bg-gray-300 text-zinc-800 flex items-center font-instrument-sans justify-center py-6 mx-auto border-t border-gray-300 z-60 relative"
       >
         <Magnet
           paddingX={300}

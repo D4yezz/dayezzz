@@ -96,7 +96,7 @@ export function ProjectCard({
                   onClick={() => {
                     if (!isDekstop) router.push("/project/" + id);
                   }}
-                  className="flex items-center gap-2 text-gray-500 transition-colors duration-300 group-hover:text-gray-400"
+                  className="flex cursor-default items-center gap-2 text-gray-500 transition-colors duration-300 group-hover:text-gray-400"
                 >
                   <span className="text-xs font-medium">VIEW PROJECT</span>
                   <motion.div
