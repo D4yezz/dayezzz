@@ -168,6 +168,8 @@ export const projects = [
       "/projects/dayezzz/1.png",
       "/projects/dayezzz/2.png",
       "/projects/dayezzz/3.png",
+      "/projects/dayezzz/4.png",
+      "/projects/dayezzz/5.png",
     ],
     tags: [
       "NextJS",
