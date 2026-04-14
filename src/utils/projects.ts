@@ -19,7 +19,7 @@ export const projects = [
     tags: ["HTML", "CSS", "JavaScript", "Bootstrap"],
     role: "Frontend",
     year: "Oct 2024",
-    link: "https://d4yezz.github.io/Jendela-Jatim/d4yezz.github.io/Jendela-Jatim/",
+    link: "https://d4yezz.github.io/Jendela-Jatim/",
     repo: "https://github.com/D4yezz/Jendela-Jatim",
   },
   {
@@ -56,10 +56,13 @@ export const projects = [
     longDesc:
       "Explore Ngalam invites visitors to uncover the breathtaking landscapes and cultural diversity of Malang and its surrounding areas. Built as a fullstack application with React and Supabase, it offers dynamic content management and a seamless browsing experience for travelers.",
     features: [
-      "List of waste items and their prices",
-      "Form for recording and calculating waste prices",
-      "Proof of total waste price via receipt",
-      "Automatic messages with criticism and suggestions sent to a spreadsheet",
+      "Structured data management with full CRUD functionality for destinations, facilities, and ticketing systems.",
+      "Relational database design ensuring seamless integration between destinations, facilities, and ticket data.",
+      "Image upload support for enriching destination content with visual representations.",
+      "Dynamic display of all tourism destinations with optimized data rendering.",
+      "Advanced data handling with pagination and search functionality for efficient content discovery.",
+      "Backend powered by Supabase for scalable and real-time database management.",
+      "Modern, responsive, and user-friendly UI/UX design focused on enhancing user exploration experience.",
     ],
     images: [
       "/projects/explore-ngalam/1.png",
@@ -160,9 +163,10 @@ export const projects = [
       "Dayezzz is my personal portfolio website, designed to showcase my journey as a developer. With cinematic scroll effects, smooth Framer Motion animations, and a carefully curated monochrome aesthetic, it serves as a living testament to my skills and creative vision.",
     features: [
       "High-conversion Landing Page featuring an intuitive and modern UI/UX design",
-      "Secure User Authentication system with distinct Admin and Customer roles",
-      "Interactive Admin Dashboard with data visualization for real-time sales monitoring",
-      "Robust Management System for seamless product inventory and order handling",
+      "Cinematic Scroll Effects with smooth and engaging animations powered by Framer Motion",
+      "Dynamic Project Showcase with interactive elements and detailed project descriptions",
+      "Personalized About Section highlighting my journey, skills, and aspirations as a developer",
+      "Responsive Design ensuring optimal viewing experience across all devices",
     ],
     images: [
       "/projects/dayezzz/1.png",
