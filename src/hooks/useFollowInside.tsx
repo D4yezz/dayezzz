@@ -28,7 +28,7 @@ export function useFollowInside(ref: RefObject<HTMLElement | null>) {
 
     el.addEventListener("mousemove", move);
     return () => el.removeEventListener("mousemove", move);
-  }, []);
+  }, [ref, x, y]);
 
   return { x, y };
 }

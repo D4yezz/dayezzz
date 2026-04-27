@@ -1,4 +1,6 @@
-export const projects = [
+import { IProject } from "@/types/global";
+
+export const projects: IProject[] = [
   {
     id: 1,
     name: "Jendela Jatim",
@@ -112,6 +114,18 @@ export const projects = [
     year: "Nov 2025",
     link: "https://go-rent-wine.vercel.app/",
     repo: "https://github.com/D4yezz/Go-Rent",
+    accDemo: [
+      {
+        name: "Demo Staff",
+        email: "demopgs@mail.com",
+        pass: "demopetugas",
+      },
+      {
+        name: "Demo Admin",
+        email: "demoadm@mail.com",
+        pass: "demoadmin",
+      },
+    ],
   },
   {
     id: 5,

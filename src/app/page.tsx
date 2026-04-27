@@ -33,21 +33,11 @@ export default function Home() {
   });
 
   useMotionValueEvent(mainProgress, "change", (v) => {
-    // if (isDekstop) {
     if (v > 0.02 && v < 0.9) {
       setShowNavbar(true);
-      console.log("welcomeProgress", showNavbar);
     } else {
       setShowNavbar(false);
-      console.log("welcomeProgress", showNavbar);
     }
-    // } else if (v > 0.05 && v < 0.9) {
-    //   setShowNavbar(true);
-    //   console.log("welcomeProgress", showNavbar);
-    // } else {
-    //   setShowNavbar(false);
-    //   console.log("welcomeProgress", showNavbar);
-    // }
   });
 
   return (

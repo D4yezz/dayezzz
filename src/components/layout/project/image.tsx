@@ -1,18 +1,13 @@
 "use client";
 
 import { useLenis } from "@/components/providers/LenisProvider";
+import { IProject } from "@/types/global";
 import { motion, AnimatePresence, easeInOut } from "framer-motion";
 import { X } from "lucide-react";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
-type Project = {
-  id: number;
-  name: string;
-  images: string[];
-};
-
-export default function ImageProject({ project }: { project: Project }) {
+export default function ImageProject({ project }: { project: IProject }) {
   const [open, setOpen] = useState<string | null>(null);
   const lenis = useLenis();
 
@@ -29,7 +24,7 @@ export default function ImageProject({ project }: { project: Project }) {
   }, [open, lenis]);
   return (
     <>
-      <div className="lg:w-[60%] w-full lg:px-20 px-6 lg:py-26 py-14 lg:order-1 order-3 relative">
+      <div className="lg:w-[60%] w-full h-fit lg:px-20 px-6 lg:py-26 py-14 lg:order-1 order-3 relative">
         <div className="lg:space-y-16 space-y-8">
           {project.images.map((img, index) => (
             <motion.div
@@ -52,7 +47,8 @@ export default function ImageProject({ project }: { project: Project }) {
                     alt={`${project.name} - Screenshot ${index + 1}`}
                     width={1000}
                     height={1000}
-                    className="object-cover transition-transform duration-700 group-hover:scale-105 grayscale-80 group-hover:grayscale-0"
+                    loading="eager"
+                    className="object-cover w-full h-full transition-transform duration-700 group-hover:scale-105 grayscale-80 group-hover:grayscale-0"
                     priority={index === 0}
                   />
                 </div>
