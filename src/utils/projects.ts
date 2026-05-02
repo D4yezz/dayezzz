@@ -167,6 +167,18 @@ export const projects: IProject[] = [
     year: "Dec 2025",
     link: "https://pentol-ngetop.vercel.app/",
     repo: "https://github.com/D4yezz/pentol-ngetop",
+    accDemo: [
+      {
+        name: "Admin Dummy",
+        email: "admindummy@mail.com",
+        pass: "admindummy1234",
+      },
+      {
+        name: "User Dummy",
+        email: "user@mail.com",
+        pass: "user1234",
+      },
+    ],
   },
   {
     id: 6,

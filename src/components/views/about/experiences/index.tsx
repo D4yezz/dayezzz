@@ -1,13 +1,7 @@
 "use client";
 
 import SeparatorSection from "@/components/layout/SeparatorSection";
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipTrigger,
-} from "@/components/ui/tooltip";
 import { useFollowInside } from "@/hooks/useFollowInside";
-import { useFollowPointer } from "@/hooks/useFollowPointer";
 import { experiences } from "@/utils/experiences";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
