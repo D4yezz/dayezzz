@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useLenis } from "@/components/providers/LenisProvider";
 
 function getGreeting() {
   const date = new Date();
@@ -34,6 +35,22 @@ export default function LoadingScreen() {
   const activeText =
     [...loadingSteps].reverse().find((s) => progress >= s.min)?.text ??
     loadingSteps[0].text;
+
+  const lenis = useLenis();
+  useEffect(() => {
+    if (!lenis) return;
+    if (isLoading && !visited) {
+      lenis.stop();
+      document.documentElement.style.overflow = "hidden";
+      document.body.style.overflow = "hidden";
+      document.body.style.height = "100vh";
+    } else {
+      lenis.start();
+      document.documentElement.style.overflow = "";
+      document.body.style.overflow = "";
+      document.body.style.height = "";
+    }
+  }, [isLoading, lenis, visited]);
 
   useEffect(() => {
     if (visited) {
