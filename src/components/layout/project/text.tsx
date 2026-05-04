@@ -38,22 +38,27 @@ export default function TextProject({
     return () => observer.disconnect();
   }, [parentRef]);
 
-  const opacity = useTransform(scrollYProgress, [0, 0.4], [0, 1]);
-  const elementY = useTransform(scrollYProgress, [0, 0.6], [40, 0]);
+  const opacity = useTransform(scrollYProgress, [0, 0.3], [0, 1]);
+  const elementX = useTransform(scrollYProgress, [0, 0.6], [40, 0]);
+  const elementY = useTransform(scrollYProgress, [0, 0.4], [120, 0]);
   const elementY2 = useTransform(mainProgress, [0, 1], [0, parentHeight * 0.5]);
 
   return (
     <motion.div
       ref={ref}
       style={{ y: isDesktop ? elementY2 : 0 }}
-      className={`lg:w-[40%] w-full lg:h-fit lg:min-h-1/3 lg:mt-0 lg:py-14 py-8 flex items-center lg:order-3 order-1 font-instrument-sans lg:absolute relative top-20 right-0`}
+      className={`lg:w-[40%] w-full lg:h-fit lg:min-h-1/3 lg:mt-0 lg:py-14 py-0 flex items-center lg:order-3 order-1 font-instrument-sans lg:absolute relative top-20 right-0`}
     >
-      <div className="lg:px-16 px-8 lg:py-0 py-12 w-full">
+      <div className="lg:px-16 px-8 lg:py-0 py-6 w-full">
         <motion.div
           initial={{ opacity: 0, x: 40 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.9, ease: [0.25, 0.46, 0.45, 0.94] }}
-          style={{ opacity, x: elementY }}
+          style={{
+            opacity,
+            x: isDesktop ? elementX : 0,
+            y: isDesktop ? 0 : elementY,
+          }}
           className="space-y-6"
         >
           <div>
@@ -157,7 +162,7 @@ export default function TextProject({
               <span className="text-xs font-mono tracking-[0.2em] uppercase text-gray-400 mb-4 block">
                 Account Demo
               </span>
-              <ul className="flex items-center gap-3">
+              <ul className="flex lg:flex-row flex-col items-center gap-3">
                 {project.accDemo?.map((demo, index) => (
                   <li
                     key={index.toString().padStart(2, "0")}
