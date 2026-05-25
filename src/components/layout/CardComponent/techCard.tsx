@@ -24,18 +24,18 @@ export default function TechCard({
       onHoverStart={() => setHovered(true)}
       onHoverEnd={() => setHovered(false)}
       whileHover={{ scale: 1.05, y: -6 }}
-      className="relative w-40 p-6 overflow-hidden border-2 group lg:w-60 cursor-none bg-zinc-900 border-gray-300/20 hover:border-gray-300"
+      className="relative w-40 p-6 overflow-hidden border-2 group lg:w-60 cursor-none bg-zinc-900 border-gray-300/20 hover:border-gray-300 duration-500 ease-in-out"
     >
       {hovered && (
         <motion.img
           src={"/tech/" + tech.url}
           alt={tech.name}
-          className="absolute z-10 w-10 h-10 pointer-events-none opacity-90"
+          className="absolute z-10 w-11 h-11 pointer-events-none opacity-90"
           style={{
             x,
             y,
-            translateX: "-80%",
-            translateY: "-80%",
+            translateX: "-120%",
+            translateY: "-120%",
           }}
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -44,6 +44,8 @@ export default function TechCard({
             type: "spring",
             stiffness: 200,
             damping: 15,
+            duration: 0.1,
+            ease: "easeInOut",
           }}
         />
       )}
