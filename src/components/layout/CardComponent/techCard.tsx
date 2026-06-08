@@ -1,17 +1,33 @@
 import { useFollowInside } from "@/hooks/useFollowInside";
 import { useRef, useState } from "react";
 import { motion } from "framer-motion";
+import useMediaQuery from "@/hooks/useMediaQuery";
 
 export default function TechCard({
   tech,
   index,
+  techLength,
 }: {
   tech: { name: string; category: string; url: string };
   index: number;
+  techLength: number;
 }) {
   const ref = useRef<HTMLDivElement>(null);
   const { x, y } = useFollowInside(ref);
   const [hovered, setHovered] = useState(false);
+  const isDekstop = useMediaQuery("(min-width: 1024px)");
+
+  const styleCol = () => {
+    if (isDekstop) {
+      if (index === techLength - 2) {
+        return "col-span-2";
+      }
+    } else {
+      if (index === techLength - 1) {
+        return "col-span-2";
+      }
+    }
+  };
 
   return (
     <motion.div
@@ -24,13 +40,13 @@ export default function TechCard({
       onHoverStart={() => setHovered(true)}
       onHoverEnd={() => setHovered(false)}
       whileHover={{ scale: 1.05, y: -6 }}
-      className="relative w-40 p-6 overflow-hidden border-2 group lg:w-60 cursor-none bg-zinc-900 border-gray-300/20 hover:border-gray-300 duration-500 ease-in-out"
+      className={`relative w-full mx-auto p-6 overflow-hidden border-2 group cursor-none bg-zinc-900 border-gray-300/20 hover:border-gray-300 duration-500 ease-in-out ${styleCol()}`}
     >
       {hovered && (
         <motion.img
           src={"/tech/" + tech.url}
           alt={tech.name}
-          className="absolute z-10 w-11 h-11 pointer-events-none opacity-90"
+          className="absolute z-10 pointer-events-none w-11 h-11 opacity-90"
           style={{
             x,
             y,

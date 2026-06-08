@@ -47,9 +47,9 @@ export default function TextProject({
     <motion.div
       ref={ref}
       style={{ y: isDesktop ? elementY2 : 0 }}
-      className={`lg:w-[40%] w-full lg:h-fit lg:min-h-1/3 lg:mt-0 lg:py-14 py-0 flex items-center lg:order-3 order-1 font-instrument-sans lg:absolute relative top-20 right-0`}
+      className={`lg:w-[40%] w-full h-fit lg:h-fit lg:min-h-1/3 lg:mt-0 lg:py-14 py-0 flex items-center lg:order-3 order-1 font-instrument-sans lg:absolute relative top-20 right-0`}
     >
-      <div className="lg:px-16 px-8 lg:py-0 py-6 w-full">
+      <div className="w-full px-8 py-6 lg:px-16 lg:py-0">
         <motion.div
           initial={{ opacity: 0, x: 40 }}
           animate={{ opacity: 1, x: 0 }}
@@ -77,7 +77,7 @@ export default function TextProject({
                     delay: 0.15 + index * 0.08,
                     ease: [0.25, 0.46, 0.45, 0.94],
                   }}
-                  className="group relative flex items-start gap-2 py-2 border-b border-zinc-700/40 first:border-t hover:bg-zinc-700/10 transition-colors duration-300"
+                  className="relative flex items-start gap-2 py-2 transition-colors duration-300 border-b group border-zinc-700/40 first:border-t hover:bg-zinc-700/10"
                 >
                   <div className="absolute left-0 top-0 bottom-0 w-0.5 bg-gray-400 scale-y-0 group-hover:scale-y-100 transition-transform duration-300 origin-top" />
 
@@ -85,7 +85,7 @@ export default function TextProject({
                     {String(index + 1).padStart(2, "0")}
                   </span>
 
-                  <p className=" leading-relaxed text-gray-300/90 group-hover:text-gray-200 transition-colors duration-300">
+                  <p className="leading-relaxed transition-colors duration-300  text-gray-300/90 group-hover:text-gray-200">
                     {f}
                   </p>
                 </motion.div>
@@ -130,7 +130,7 @@ export default function TextProject({
               >
                 <Github
                   size={16}
-                  className="text-zinc-400 group-hover:text-gray-200 transition-colors duration-400"
+                  className="transition-colors text-zinc-400 group-hover:text-gray-200 duration-400"
                 />
                 <span className="text-xs font-mono tracking-[0.2em] uppercase text-zinc-400 group-hover:text-gray-200 transition-colors duration-400">
                   Code
@@ -162,21 +162,21 @@ export default function TextProject({
               <span className="text-xs font-mono tracking-[0.2em] uppercase text-gray-400 mb-4 block">
                 Account Demo
               </span>
-              <ul className="flex lg:flex-row flex-col items-center gap-3">
+              <ul className="flex flex-col items-center gap-3">
                 {project.accDemo?.map((demo, index) => (
                   <li
                     key={index.toString().padStart(2, "0")}
-                    className="flex relative flex-col justify-center w-full items-start border text-gray-300/80 border-zinc-500 p-4 rounded-md bg-zinc-700/40"
+                    className="relative flex flex-col items-start justify-center w-full p-4 border rounded-md text-gray-300/80 border-zinc-500 bg-zinc-700/40"
                   >
-                    <p className="absolute top-3 right-3 text-5xl font-bold font-inter opacity-40">
+                    <p className="absolute text-5xl font-bold top-3 right-3 font-inter opacity-40">
                       {index + 1}
                     </p>
-                    <h3 className="text-2xl font-medium opacity-80 mb-3">
+                    <h3 className="mb-3 text-2xl font-medium opacity-80">
                       {demo.name}
                     </h3>
                     <p className="text-gray-300"> {demo.email}</p>
                     <div className="flex gap-1 text-gray-300">
-                      <p>Password :</p>
+                      <p>Password : </p>
                       <p>{demo.pass}</p>
                     </div>
                   </li>

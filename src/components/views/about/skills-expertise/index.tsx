@@ -17,11 +17,19 @@ const skillCategories = [
   },
   {
     category: "Backend",
-    skills: ["Supabase", "REST API", "Prisma", "MySQL"],
+    skills: ["Express.js", "Supabase", "Prisma", "MySQL", "PostgreSQL"],
   },
   {
     category: "Tools & Others",
-    skills: ["Git & GitHub", "Figma", "Vercel", "VS Code", "Playwright"],
+    skills: [
+      "Git & GitHub",
+      "Figma",
+      "Vercel",
+      "VS Code",
+      "Playwright",
+      "Postman",
+      "Notion",
+    ],
   },
 ];
 
@@ -74,10 +82,10 @@ export default function SkillsExpertise() {
                 className="relative p-8 transition-all duration-500 border group border-gray-300/10 hover:border-gray-300/30 bg-zinc-800/50"
               >
                 <div className="flex items-center gap-3 mb-6">
-                  <span className="text-xs font-medium tracking-widest uppercase text-gray-500">
+                  <span className="text-xs font-medium tracking-widest text-gray-500 uppercase">
                     0{catIndex + 1}
                   </span>
-                  <div className="flex-1 h-px bg-gray-300/10 group-hover:bg-gray-300/20 transition-colors duration-500" />
+                  <div className="flex-1 h-px transition-colors duration-500 bg-gray-300/10 group-hover:bg-gray-300/20" />
                 </div>
                 <h3 className="mb-6 text-2xl font-bold text-gray-300">
                   {cat.category}
@@ -94,14 +102,14 @@ export default function SkillsExpertise() {
                         delay: catIndex * 0.1 + skillIndex * 0.05,
                       }}
                       viewport={{ once: true }}
-                      className="flex items-center gap-3 text-gray-400 group/item hover:text-gray-300 transition-colors duration-300"
+                      className="flex items-center gap-3 text-gray-400 transition-colors duration-300 group/item hover:text-gray-300"
                     >
                       <span className="w-1.5 h-1.5 rounded-full bg-gray-500 group-hover/item:bg-gray-300 transition-colors duration-300" />
                       <span className="text-base lg:text-lg">{skill}</span>
                     </motion.li>
                   ))}
                 </ul>
-                <div className="absolute bottom-0 right-0 w-8 h-8 border-b border-r border-gray-300/10 group-hover:border-gray-300/30 transition-colors duration-500" />
+                <div className="absolute bottom-0 right-0 w-8 h-8 transition-colors duration-500 border-b border-r border-gray-300/10 group-hover:border-gray-300/30" />
               </motion.div>
             ))}
           </div>

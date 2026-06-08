@@ -2,9 +2,12 @@ export const experiences = [
   {
     id: 1,
     title: "QA Engineer Intern",
-    organization: "PT. Jalin Mayantara Indonesia",
-    description:
-      "Actively contributed over a 6-month vocational internship to ensure software quality through rigorous testing of the company's attendance system and an AI chatbot platform. Key responsibilities included documenting detailed test reports and validating features to guarantee all functionalities aligned perfectly with business requirements and user experience standards.",
+    organization: "PT Jalin Mayantara Indonesia",
+    list: [
+      "Ensured software quality over a 6-month period through intensive testing of the company’s attendance website and AI chatbot platform.",
+      "Compiled comprehensive test reports and tracked bugs to maintain system stability.",
+      "Conducted regular feature validation to ensure all application functions met business requirements and user experience (UX) standards",
+    ],
     period: "6 months (2025)",
     type: "Internship",
   },

@@ -27,7 +27,7 @@ export default function HeaderProject() {
 
         <div className="w-48 h-[1.5px] bg-linear-to-r from-transparent via-gray-400 to-transparent" />
 
-        <p className="max-w-3xl text-base leading-relaxed text-zinc-400">
+        <p className="max-w-3xl text-base leading-relaxed text-justify md:text-center text-zinc-400">
           {project.longDesc || project.description}
         </p>
 

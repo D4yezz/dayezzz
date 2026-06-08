@@ -80,39 +80,52 @@ export default function Experiences() {
                       download(exp.file);
                     }
                   }}
-                  className="group relative flex flex-col p-6 lg:p-8 border border-gray-300/10 hover:border-gray-300/25 bg-zinc-800/50 transition-all duration-500 hover:bg-zinc-700/20"
+                  className="relative flex flex-col p-6 transition-all duration-500 border group lg:p-8 border-gray-300/10 hover:border-gray-300/25 bg-zinc-800/50 hover:bg-zinc-700/20"
                 >
                   <div className="absolute text-6xl font-bold select-none top-4 right-6 text-gray-300/3 group-hover:text-gray-300/[0.07] transition-all duration-500">
                     0{index + 1}
                   </div>
 
-                  <div className="flex flex-col gap-3 relative text-left z-10">
-                    <div className="flex flex-col md:flex-row md:items-center text-left md:justify-between gap-3">
+                  <div className="relative z-10 flex flex-col gap-3 text-left">
+                    <div className="flex flex-col gap-3 text-left md:flex-row md:items-center md:justify-between">
                       <div>
-                        <h3 className="text-xl font-semibold text-gray-300 lg:text-2xl group-hover:text-white transition-colors duration-300">
+                        <h3 className="text-xl font-semibold text-gray-300 transition-colors duration-300 lg:text-2xl group-hover:text-white">
                           {exp.title}
                         </h3>
-                        <p className="text-base text-gray-500 mt-1">
+                        <p className="mt-1 text-base text-gray-500">
                           {exp.organization}
                         </p>
                       </div>
 
                       <div className="flex items-center gap-3">
-                        <span className="px-3 py-1 text-xs font-medium uppercase tracking-wider border border-gray-300/20 text-gray-400">
+                        <span className="px-3 py-1 text-xs font-medium tracking-wider text-gray-400 uppercase border border-gray-300/20">
                           {exp.type}
                         </span>
-                        <span className="px-3 py-1 text-sm font-medium border border-gray-300/20 text-gray-400">
+                        <span className="px-3 py-1 text-sm font-medium text-gray-400 border border-gray-300/20">
                           {exp.period}
                         </span>
                       </div>
                     </div>
 
-                    <p className="text-sm leading-relaxed text-gray-500 mt-2 max-w-3xl">
-                      {exp.description}
-                    </p>
+                    {exp.list ? (
+                      <ul className="max-w-3xl mt-2 ml-4">
+                        {exp.list.map((item, idx) => (
+                          <li
+                            key={idx}
+                            className="max-w-3xl text-sm leading-relaxed text-gray-500 list-disc "
+                          >
+                            {item}
+                          </li>
+                        ))}
+                      </ul>
+                    ) : (
+                      <p className="max-w-3xl mt-2 text-sm leading-relaxed text-gray-500">
+                        {exp.description}
+                      </p>
+                    )}
                   </div>
 
-                  <div className="absolute bottom-0 left-0 w-0 h-px bg-gray-300/40 group-hover:w-full transition-all duration-700" />
+                  <div className="absolute bottom-0 left-0 w-0 h-px transition-all duration-700 bg-gray-300/40 group-hover:w-full" />
                 </motion.div>
                 {exp.thumbnail && hover === index && (
                   <motion.div
@@ -122,7 +135,7 @@ export default function Experiences() {
                       translateX: "-80%",
                       translateY: "-400%",
                     }}
-                    className="w-50 h-fit bg-white p-1 rounded-lg flex flex-col justify-center items-center gap-1 overflow-hidden absolute z-20 pointer-events-none"
+                    className="absolute z-20 flex flex-col items-center justify-center gap-1 p-1 overflow-hidden bg-white rounded-lg pointer-events-none w-50 h-fit"
                     initial={{ opacity: 0, scale: 0.8 }}
                     animate={{ opacity: 1, scale: 1 }}
                     exit={{ opacity: 0, scale: 0.6 }}
@@ -139,7 +152,7 @@ export default function Experiences() {
                       height={400}
                       className="w-full h-full rounded-lg"
                     />
-                    <span className="text-gray-500 text-center w-full font-medium text-sm">
+                    <span className="w-full text-sm font-medium text-center text-gray-500">
                       Download
                     </span>
                   </motion.div>

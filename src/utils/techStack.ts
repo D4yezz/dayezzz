@@ -20,4 +20,10 @@ export const techStack = [
   { name: "PostgreSQL", category: "Database", url: "postgresql.png" },
   { name: "Playwright", category: "Testing", url: "playwright.png" },
   { name: "Git", category: "Version Control", url: "git.png" },
+  { name: "Postman", category: "API Testing", url: "postman.png" },
+  {
+    name: "Notion",
+    category: "Productivity",
+    url: "notion.png",
+  },
 ];

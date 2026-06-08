@@ -20,7 +20,7 @@ export default function Project() {
   if (!project) return notFound();
 
   return (
-    <section ref={mainRef} className="relative flex lg:flex-row flex-col h-fit">
+    <section ref={mainRef} className="relative flex flex-col lg:flex-row h-fit">
       <ImageProject project={project} />
 
       <motion.div
@@ -31,7 +31,7 @@ export default function Project() {
           delay: 0.3,
           ease: [0.25, 0.46, 0.45, 0.94],
         }}
-        className="lg:hidden visible w-[90%] lg:order-2 order-2 rounded-full mx-auto h-px bg-linear-to-r from-zinc-700/40 via-gray-300/90 to-zinc-700/40 lg:my-12 my-6"
+        className="lg:hidden visible w-[90%] lg:order-2 order-2 rounded-full mx-auto h-px bg-linear-to-r from-zinc-700/40 via-gray-300/90 to-zinc-700/40 lg:my-12 mt-22 mb-0"
       />
 
       <TextProject
