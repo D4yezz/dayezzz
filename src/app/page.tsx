@@ -4,15 +4,8 @@ import Welcome from "@/components/views/home-page/welcome";
 import Philosophy from "@/components/views/home-page/philosophy";
 import Skills from "@/components/views/home-page/skills";
 import Tech from "@/components/views/home-page/tech";
-import { useEffect, useRef, useState } from "react";
-import {
-  AnimatePresence,
-  easeInOut,
-  motion,
-  useMotionValueEvent,
-  useScroll,
-  useTransform,
-} from "framer-motion";
+import { useRef, useState } from "react";
+import { motion, useMotionValueEvent, useScroll } from "framer-motion";
 import Projects from "@/components/views/home-page/projects";
 import Footer from "@/components/views/footer";
 import CallToAction from "@/components/views/cta";

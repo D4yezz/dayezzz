@@ -9,6 +9,7 @@ import {
   Old_Standard_TT,
   Poppins,
 } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 import { CursorProvider } from "@/hooks/useCursor";
 import CustomCursor from "@/components/ui/customCursor";
@@ -94,7 +95,10 @@ export default function RootLayout({
           <CursorProvider>
             <LoadingScreen />
             <CustomCursor />
-            <TooltipProvider>{children}</TooltipProvider>
+            <TooltipProvider>
+              {children}
+              <Analytics />
+            </TooltipProvider>
           </CursorProvider>
         </LenisProvider>
       </body>
