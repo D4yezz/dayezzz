@@ -133,6 +133,22 @@
   --font-old-standard-tt: "Old Standard TT", serif;
 }
 
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #27272a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #d1d5dc;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #b2b6bc;
+}
 
 /* *,
 *::before,

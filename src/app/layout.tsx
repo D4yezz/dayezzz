@@ -89,7 +89,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${lato.variable} ${montserrat.variable} ${poppins.variable} ${libre.variable} ${instrumentSans.variable} ${inter.variable} ${oldStandard.variable} antialiased`}
+        className={`${geistSans.variable} ${lato.variable} ${montserrat.variable} ${poppins.variable} ${libre.variable} ${instrumentSans.variable} ${inter.variable} ${oldStandard.variable} antialiased selection:bg-gray-300 selection:text-zinc-800`}
       >
         <LenisProvider>
           <CursorProvider>
