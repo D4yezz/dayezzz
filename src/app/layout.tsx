@@ -65,20 +65,71 @@ const oldStandard = Old_Standard_TT({
   weight: ["400", "700"],
 });
 
+const siteUrl = "https://dayezzz.my.id";
+
 export const metadata: Metadata = {
-  title: "Dayezzz.",
-  description: "Website portfolio Dayezzz.",
+  metadataBase: new URL(siteUrl),
+  title: {
+    default: "Dias Adi (Dayezzz) | Frontend & Fullstack Web Developer",
+    template: "%s | Dias Adi (Dayezzz)",
+  },
+  description:
+    "Portfolio resmi Dias Adi (Dayezzz), seorang Web Developer spesialis React, Next.js, TypeScript, dan Tailwind CSS. Lihat proyek dan pengalaman terbaru di sini.",
+  authors: [{ name: "Dias Adi", url: siteUrl }],
+  creator: "Dias Adi",
   keywords: [
-    "Portfolio",
-    "React",
-    "NextJS",
-    "TailwindCSS",
-    "TypeScript",
-    "Dias",
-    "Adi",
+    "Dias Adi",
     "Dayezzz",
-    "Dayezzz.",
+    "Portfolio Web Developer",
+    "Frontend Developer Indonesia",
+    "Fullstack Developer Indonesia",
+    "React Developer",
+    "Next.js Developer",
+    "JavaScript Developer",
+    "TypeScript Developer",
   ],
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    title: "Dias Adi (Dayezzz) | Frontend & Fullstack Web Developer",
+    description:
+      "Portfolio resmi Dias Adi (Dayezzz). Menampilkan berbagai proyek web modern menggunakan Next.js, React, dan Tailwind CSS.",
+    url: siteUrl,
+    siteName: "Portfolio Dias Adi",
+    locale: "id_ID",
+    type: "website",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Preview Portfolio Dias Adi (Dayezzz)",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Dias Adi (Dayezzz) | Web Developer Portfolio",
+    description:
+      "Portfolio proyek web modern menggunakan React, Next.js, dan Tailwind CSS.",
+    images: ["/og-image.png"],
+  },
+
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  verification: {
+    google: "TM-zF0zDVhUd4LbxL0Y2SBvV974YtPvrUWRET9RfwKo",
+  },
 };
 
 export default function RootLayout({
@@ -86,11 +137,35 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: "Dias Adi",
+    alternateName: "Dayezzz",
+    url: "https://dayezzz.my.id",
+    jobTitle: "Frontend Developer / Web Engineer",
+    knowsAbout: [
+      "Web Development",
+      "React",
+      "Next.js",
+      "TypeScript",
+      "Tailwind CSS",
+      "Software Testing",
+    ],
+    sameAs: [
+      "https://github.com/d4yezz",
+      "https://www.linkedin.com/in/dias-adi-711832303/",
+    ],
+  };
   return (
     <html lang="en">
       <body
         className={`${geistSans.variable} ${lato.variable} ${montserrat.variable} ${poppins.variable} ${libre.variable} ${instrumentSans.variable} ${inter.variable} ${oldStandard.variable} antialiased selection:bg-gray-300 selection:text-zinc-800`}
       >
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
         <LenisProvider>
           <CursorProvider>
             <LoadingScreen />
