@@ -65,46 +65,46 @@ const oldStandard = Old_Standard_TT({
   weight: ["400", "700"],
 });
 
-const siteUrl = "https://dayezzz.my.id";
+const siteUrl = "https://www.dayezzz.my.id";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Dias Adi (Dayezzz) | Frontend & Fullstack Web Developer",
+    default: "Dias Adi (Dayezzz) | Frontend & Full-Stack Web Developer",
     template: "%s | Dias Adi (Dayezzz)",
   },
   description:
-    "Portfolio resmi Dias Adi (Dayezzz), seorang Web Developer spesialis React, Next.js, TypeScript, dan Tailwind CSS. Lihat proyek dan pengalaman terbaru di sini.",
+    "Portfolio of Dias Adi (Dayezzz), a Web Developer specializing in React, Next.js, TypeScript, and Tailwind CSS. Explore modern web projects and engineering experience.",
   authors: [{ name: "Dias Adi", url: siteUrl }],
   creator: "Dias Adi",
   keywords: [
     "Dias Adi",
     "Dayezzz",
-    "Portfolio Web Developer",
-    "Frontend Developer Indonesia",
-    "Fullstack Developer Indonesia",
+    "Web Developer Portfolio",
+    "Frontend Developer",
+    "Full Stack Developer",
     "React Developer",
     "Next.js Developer",
-    "JavaScript Developer",
-    "TypeScript Developer",
+    "TypeScript Engineer",
+    "Software Engineer Portfolio",
   ],
   alternates: {
     canonical: "/",
   },
   openGraph: {
-    title: "Dias Adi (Dayezzz) | Frontend & Fullstack Web Developer",
+    title: "Dias Adi (Dayezzz) | Frontend & Full-Stack Web Developer",
     description:
-      "Portfolio resmi Dias Adi (Dayezzz). Menampilkan berbagai proyek web modern menggunakan Next.js, React, dan Tailwind CSS.",
+      "Portfolio of Dias Adi (Dayezzz). Showcasing modern web development projects built with React, Next.js, TypeScript, and Tailwind CSS.",
     url: siteUrl,
-    siteName: "Portfolio Dias Adi",
-    locale: "id_ID",
+    siteName: "Dias Adi Portfolio",
+    locale: "en_US",
     type: "website",
     images: [
       {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Preview Portfolio Dias Adi (Dayezzz)",
+        alt: "Dias Adi (Dayezzz) Portfolio Preview",
       },
     ],
   },
@@ -112,10 +112,9 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Dias Adi (Dayezzz) | Web Developer Portfolio",
     description:
-      "Portfolio proyek web modern menggunakan React, Next.js, dan Tailwind CSS.",
+      "Explore modern web development projects built with React, Next.js, TypeScript, and Tailwind CSS.",
     images: ["/og-image.png"],
   },
-
   robots: {
     index: true,
     follow: true,
@@ -142,8 +141,8 @@ export default function RootLayout({
     "@type": "Person",
     name: "Dias Adi",
     alternateName: "Dayezzz",
-    url: "https://dayezzz.my.id",
-    jobTitle: "Frontend Developer / Web Engineer",
+    url: "https://www.dayezzz.my.id",
+    jobTitle: "Frontend & Full-Stack Web Developer",
     knowsAbout: [
       "Web Development",
       "React",
