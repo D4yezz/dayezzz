@@ -1,23 +1,22 @@
 import SeparatorSection from "@/components/layout/SeparatorSection";
 import useMediaQuery from "@/hooks/useMediaQuery";
-import { motion, MotionValue, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
 
-export default function Philosophy({
-  scrollYProgress,
-  refMobile,
-}: {
-  scrollYProgress: MotionValue<number>;
-  refMobile: React.RefObject<HTMLDivElement | null>;
-}) {
+export default function Philosophy() {
+  const ref = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start end", "end start"],
+  });
+
   const isDekstop = useMediaQuery("(min-width: 1024px)");
-  const y = useTransform(scrollYProgress, [0, 1], ["70%", "0%"]);
-  const opacity = useTransform(scrollYProgress, [0, 0.1], [0, 1]);
-  const titleX = useTransform(scrollYProgress, [0.5, 0.8], [-100, 0]);
-  const textX = useTransform(scrollYProgress, [0.5, 0.8], [200, 0]);
-  const titleMobile = useTransform(scrollYProgress, [0.1, 0.9], [100, 0]);
-  const textMobile = useTransform(scrollYProgress, [0.2, 0.8], [100, 0]);
+  const titleX = useTransform(scrollYProgress, [0, 0.5], [-100, 0]);
+  const textX = useTransform(scrollYProgress, [0, 0.5], [200, 0]);
+  const titleMobile = useTransform(scrollYProgress, [0, 0.5], [100, 0]);
+  const textMobile = useTransform(scrollYProgress, [0, 0.5], [100, 0]);
 
-  const contentOpacity = useTransform(scrollYProgress, [0.55, 0.7], [0, 1]);
+  const contentOpacity = useTransform(scrollYProgress, [0, 0.55], [0, 1]);
 
   const bgCircle1Y = useTransform(scrollYProgress, [0, 1], [100, -200]);
   const bgCircle2Y = useTransform(scrollYProgress, [0, 1], [-100, 200]);
@@ -26,11 +25,10 @@ export default function Philosophy({
 
   return (
     <motion.section
-      ref={isDekstop ? null : refMobile}
-      style={isDekstop ? { y, opacity } : { opacity }}
-      className="relative inset-0 flex flex-col justify-center w-full h-screen px-6 py-8 overflow-x-hidden overflow-y-hidden lg:py-16 lg:h-full lg:absolute text-zinc-300 bg-zinc-800 font-instrument-sans"
+      ref={ref}
+      className="relative z-30 min-h-screen flex flex-col justify-center w-full h-screen px-6 py-8 overflow-hidden lg:py-16 text-zinc-300 bg-zinc-800 font-instrument-sans"
     >
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+      <div className="overflow-hidden overflow-y-hidden pointer-events-none">
         <motion.div
           style={{ y: bgCircle1Y }}
           className="absolute border rounded-full -top-40 -right-40 w-96 h-96 border-gray-700/30 blur-2xl"
@@ -102,7 +100,7 @@ export default function Philosophy({
         title="Digital Identity"
         description="What the name"
       />
-      <div className="relative z-10 flex flex-col items-center justify-center w-full py-4 mx-auto lg:gap-8 lg:justify-between lg:flex-row">
+      <div className="relative z-10 flex flex-col items-center justify-center w-full py-4 mx-auto lg:gap-8 gap-4 lg:justify-between lg:flex-row">
         <motion.h1
           style={{
             x: isDekstop ? titleX : 0,
@@ -126,7 +124,7 @@ export default function Philosophy({
             y: isDekstop ? 0 : textMobile,
             opacity: contentOpacity,
           }}
-          className="font-semibold lg:text-[2.3rem] text-[1.3rem] text-balance lg:text-right text-center lg:w-1/3 w-full lg:leading-10 leading-6"
+          className="font-semibold lg:text-[2.3rem] text-[1.6rem] text-balance lg:text-right text-center lg:w-1/3 w-full lg:leading-10 leading-6"
         >
           Dayezzz is my creative alias, a name I use to express ideas and craft
           digital experiences. Beyond the screen, my real name is

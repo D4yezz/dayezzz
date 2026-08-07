@@ -5,7 +5,7 @@ import Philosophy from "@/components/views/home-page/philosophy";
 import Skills from "@/components/views/home-page/skills";
 import Tech from "@/components/views/home-page/tech";
 import { useRef, useState } from "react";
-import { motion, useMotionValueEvent, useScroll } from "framer-motion";
+import { useMotionValueEvent, useScroll } from "framer-motion";
 import Projects from "@/components/views/home-page/projects";
 import Footer from "@/components/views/footer";
 import CallToAction from "@/components/views/cta";
@@ -14,11 +14,6 @@ import useMediaQuery from "@/hooks/useMediaQuery";
 export default function Home() {
   const isDekstop = useMediaQuery("(min-width: 1024px)");
   const [showNavbar, setShowNavbar] = useState(false);
-  const welcomeRef = useRef<HTMLDivElement>(null);
-  const { scrollYProgress: welcomeProgress } = useScroll({
-    target: welcomeRef,
-    offset: ["start start", "end end"],
-  });
   const mainRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress: mainProgress } = useScroll({
     target: mainRef,
@@ -27,7 +22,7 @@ export default function Home() {
 
   useMotionValueEvent(mainProgress, "change", (v) => {
     if (isDekstop) {
-      if (v > 0.02 && v < 0.9) {
+      if (v > 0.07 && v < 0.9) {
         setShowNavbar(true);
       } else {
         setShowNavbar(false);
@@ -48,13 +43,8 @@ export default function Home() {
       ) : (
         <Navbar mainProgress={mainProgress} />
       )}
-      <section
-        ref={welcomeRef}
-        className="relative lg:h-[200vh] h-fit bg-zinc-800 overflow-hidden"
-      >
-        <Welcome scrollYProgress={welcomeProgress} />
-        <Philosophy refMobile={welcomeRef} scrollYProgress={welcomeProgress} />
-      </section>
+      <Welcome />
+      <Philosophy />
       <Skills />
       <Tech />
       <Projects />
