@@ -1,5 +1,10 @@
 import { Menu, X } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
+import {
+  motion,
+  AnimatePresence,
+  MotionValue,
+  useTransform,
+} from "framer-motion";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { useMenuStore } from "@/store/useMenuStore";
@@ -28,7 +33,13 @@ const textClose = [
   { node: textCloseComponent(), title: "", href: "" },
   { node: textCloseComponent(), title: "", href: "" },
 ];
-export default function Navbar({ welcome = true }) {
+export default function Navbar({
+  welcome = true,
+  mainProgress,
+}: {
+  welcome?: boolean;
+  mainProgress?: MotionValue<number>;
+}) {
   const { open, toggle } = useMenuStore();
   const cursor = useCursor();
   const isDekstop = useMediaQuery("(min-width: 1024px)");
@@ -55,10 +66,27 @@ export default function Navbar({ welcome = true }) {
     setHoveredIndex(null);
     reset(e);
   };
+  const y = useTransform(
+    mainProgress ? mainProgress : new MotionValue(0),
+    [0.03, 0.07, 0.92, 0.95],
+    [-200, 0, 0, -200],
+  );
+  const opacity = useTransform(
+    mainProgress ? mainProgress : new MotionValue(0),
+    [0.03, 0.07],
+    [1, 1],
+  );
+
+  const styleHeader = !isDekstop
+    ? !welcome
+      ? { y, opacity }
+      : { y: 0, opacity: 1 }
+    : { y: 0, opacity: 1 };
 
   return (
-    <header
-      className={`flex lg:py-8 py-6 lg:px-16 px-8 font-inter w-full h-fit z-80 ${welcome ? "absolute" : "fixed lg:bg-transparent bg-zinc-800 top-0"}`}
+    <motion.header
+      style={mainProgress ? styleHeader : { y: 0, opacity: 1 }}
+      className={`flex lg:py-8 py-6 lg:px-16 px-8 font-inter w-full h-fit z-80 ${welcome ? "absolute" : "fixed lg:bg-transparent bg-zinc-800 top-0 text-gray-300"}`}
     >
       <nav className="flex items-start justify-between w-full">
         <Link
@@ -232,6 +260,6 @@ export default function Navbar({ welcome = true }) {
           )}
         </AnimatePresence>
       </nav>
-    </header>
+    </motion.header>
   );
 }

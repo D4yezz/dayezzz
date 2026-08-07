@@ -1,6 +1,7 @@
 "use client";
 
 import SeparatorSection from "@/components/layout/SeparatorSection";
+import ScrollFloat from "@/components/ReactBites/ScrollFloat";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 
@@ -42,13 +43,14 @@ export default function SkillsExpertise() {
 
   const opacity = useTransform(scrollYProgress, [0, 0.25], [0, 1]);
   const y = useTransform(scrollYProgress, [0, 0.3], [80, 0]);
+  const cardY = useTransform(scrollYProgress, [0.5, 1], [0, 300]);
 
   return (
     <section
       ref={ref}
       className="relative flex flex-col items-center justify-center w-full min-h-screen px-8 py-24 overflow-hidden text-gray-300 lg:px-16 bg-zinc-800 font-instrument-sans"
     >
-      <motion.div style={{ opacity }} className="w-full max-w-5xl mx-auto">
+      <motion.div style={{ opacity }} className="w-full mx-auto">
         <SeparatorSection
           scrollYProgress={scrollYProgress}
           number="02"
@@ -57,17 +59,21 @@ export default function SkillsExpertise() {
         />
 
         <motion.div style={{ y }} className="mt-16 lg:mt-24">
-          <motion.h2
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="mb-16 text-3xl font-bold text-center lg:text-4xl"
+          <ScrollFloat
+            animationDuration={5}
+            ease="back.inOut(2)"
+            scrollStart="center bottom+=50%"
+            scrollEnd="bottom bottom-=40%"
+            stagger={0.07}
+            textClassName="mb-16 text-6xl font-bold text-center lg:text-[5rem] uppercase"
           >
             Technologies & Tools
-          </motion.h2>
+          </ScrollFloat>
 
-          <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
+          <motion.div
+            style={{ y: cardY }}
+            className="grid grid-cols-1 gap-8 md:grid-cols-3"
+          >
             {skillCategories.map((cat, catIndex) => (
               <motion.div
                 key={catIndex}
@@ -112,7 +118,7 @@ export default function SkillsExpertise() {
                 <div className="absolute bottom-0 right-0 w-8 h-8 transition-colors duration-500 border-b border-r border-gray-300/10 group-hover:border-gray-300/30" />
               </motion.div>
             ))}
-          </div>
+          </motion.div>
         </motion.div>
       </motion.div>
     </section>

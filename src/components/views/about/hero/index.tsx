@@ -22,7 +22,7 @@ export default function AboutHero() {
   return (
     <section
       ref={ref}
-      className="relative flex flex-col items-center justify-center w-full h-screen overflow-hidden bg-zinc-800 font-instrument-sans"
+      className="relative z-10 flex flex-col items-center justify-center w-full h-screen overflow-hidden bg-zinc-800 font-instrument-sans"
     >
       <div className="absolute inset-0 overflow-hidden">
         <motion.div
@@ -74,7 +74,7 @@ export default function AboutHero() {
         ))}
 
         <motion.div
-          className="absolute left-1/2 top-0 w-px h-full bg-linear-to-b from-transparent via-gray-300/10 to-transparent"
+          className="absolute top-0 w-px h-full left-1/2 bg-linear-to-b from-transparent via-gray-300/10 to-transparent"
           initial={{ scaleY: 0 }}
           animate={{ scaleY: 1 }}
           transition={{ duration: 2, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}

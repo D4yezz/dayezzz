@@ -22,7 +22,7 @@ export default function Welcome({
     ["blur(0px)", "blur(8px)"],
   );
   return (
-    <section className="relative top-0 flex flex-col items-center w-full h-screen px-8 overflow-y-hidden bg-gray-300 font-instrument-sans lg:px-16 md:sticky">
+    <section className="relative top-0 flex flex-col items-center w-full h-screen px-8 overflow-y-hidden bg-gray-300 font-instrument-sans lg:px-16 md:sticky selection:bg-gray-400">
       <motion.div
         style={{ scale, opacity, filter: blur }}
         className="md:w-[80%] w-full h-full flex flex-col items-center justify-center gap-6 lg:overflow-y-hidden"
@@ -36,7 +36,7 @@ export default function Welcome({
         </motion.h1>
         <motion.div style={{ y: subtitleY }}>
           <AnimatedText
-            text="Web Developer building scalable web applications with ReactJS & NextJS, from modern user interfaces to backend logic and integrations."
+            text="Web Developer building scalable web applications with React.js & Next.js, from modern user interfaces to backend logic and integrations."
             className="w-full text-xl font-medium text-center md:w-150 text-zinc-700"
           />
         </motion.div>

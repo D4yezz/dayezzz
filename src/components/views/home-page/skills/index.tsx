@@ -51,7 +51,7 @@ export default function Skills() {
 
   return (
     <section ref={ref} className="relative lg:h-[430vh] h-[400vh] bg-zinc-800">
-      <motion.section
+      <motion.div
         style={{ y, opacity }}
         className={`${
           fixed ? "fixed top-0" : "absolute top-0"
@@ -112,7 +112,7 @@ export default function Skills() {
             ))}
           </motion.div>
         </div>
-      </motion.section>
+      </motion.div>
     </section>
   );
 }

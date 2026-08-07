@@ -26,27 +26,27 @@ export default function Home() {
   });
 
   useMotionValueEvent(mainProgress, "change", (v) => {
-    if (v > 0.02 && v < 0.9) {
-      setShowNavbar(true);
+    if (isDekstop) {
+      if (v > 0.02 && v < 0.9) {
+        setShowNavbar(true);
+      } else {
+        setShowNavbar(false);
+      }
     } else {
-      setShowNavbar(false);
+      if (v > 0.05 && v < 0.93) {
+        setShowNavbar(true);
+      } else {
+        setShowNavbar(false);
+      }
     }
   });
 
   return (
     <main ref={mainRef} className="relative w-full text-zinc-800 bg-zinc-800">
       {showNavbar ? (
-        isDekstop ? (
-          <motion.div className="text-gray-300 relative">
-            <Navbar welcome={false} />
-          </motion.div>
-        ) : (
-          <motion.div className="text-gray-300 relative">
-            <Navbar welcome={false} />
-          </motion.div>
-        )
+        <Navbar welcome={false} mainProgress={mainProgress} />
       ) : (
-        <Navbar />
+        <Navbar mainProgress={mainProgress} />
       )}
       <section
         ref={welcomeRef}

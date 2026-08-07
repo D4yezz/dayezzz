@@ -83,6 +83,7 @@ export default function CallToAction() {
     >
       <motion.div
         style={{ filter: blur }}
+        data-navbar-theme="light"
         className="w-full h-full flex flex-col lg:gap-20 gap-4 items-center justify-center bg-gray-300 text-zinc-800 inset-shadow-[0px_0px_8px] inset-shadow-zinc-800 lg:rounded-sm"
       >
         <motion.div

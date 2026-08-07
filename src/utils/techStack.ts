@@ -1,7 +1,7 @@
 export const techStack = [
   { name: "JavaScript", category: "Language", url: "javascript.png" },
   { name: "TypeScript", category: "Language", url: "typescript.png" },
-  { name: "React", category: "Frontend Library", url: "react.png" },
+  { name: "React.js", category: "Frontend Library", url: "react.png" },
   { name: "Next.js", category: "React Framework", url: "nextjs.png" },
   { name: "Tailwind CSS", category: "Styling", url: "tailwind.png" },
   { name: "shadcn/ui", category: "UI Components", url: "shadcn.png" },

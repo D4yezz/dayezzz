@@ -10,6 +10,8 @@ export const experiences = [
     ],
     period: "6 months (2025)",
     type: "Internship",
+    file: "/certificate_awards/intern_certificate_Dias.pdf",
+    thumbnail: "/certificate_awards/screenshot_intern.jpeg",
   },
   {
     id: 2,
