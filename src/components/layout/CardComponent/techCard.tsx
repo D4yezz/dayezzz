@@ -35,12 +35,11 @@ export default function TechCard({
       ref={ref}
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
-      transition={{ delay: index * 0.1, duration: 0.6 }}
-      viewport={{ once: true }}
+      transition={{ delay: index * 0.02, duration: 0.4 }}
       onHoverStart={() => setHovered(true)}
       onHoverEnd={() => setHovered(false)}
       whileHover={{ scale: 1.05, y: -6 }}
-      className={`relative w-full mx-auto p-6 overflow-hidden border-2 group cursor-none bg-zinc-900 border-gray-300/20 hover:border-gray-300 duration-500 ease-in-out ${styleCol()}`}
+      className={`relative w-full mx-auto p-6 overflow-hidden border-2 group cursor-none bg-zinc-900 border-gray-300/20 hover:border-gray-300 ${styleCol()}`}
     >
       {hovered && (
         <motion.img
