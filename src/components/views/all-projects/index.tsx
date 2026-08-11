@@ -39,6 +39,9 @@ export default function AllProjects() {
             Fullstack projects crafted with scalability, performance, and
             thoughtful user experience.
           </p>
+          <span className="absolute lg:top-2 -top-2 lg:-right-8 right-9 text-[2rem] font-libre font-bold text-gray-400">
+            ({projects.length})
+          </span>
         </div>
       </div>
       {!isDekstop && (

@@ -104,7 +104,7 @@ export default function ImageProject({ project }: { project: IProject }) {
                   <X />
                 </button>
               </div>
-              <div className="rounded-lg w-fit lg:h-fit h-fit max-w-[90%] overflow-hidden">
+              <div className="rounded-lg w-[80vw] lg:h-fit h-fit max-w-[95%] overflow-hidden">
                 <Image
                   src={open}
                   alt={`${project.name} - Fullscreen`}

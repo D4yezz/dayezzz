@@ -72,14 +72,14 @@ export function ProjectCard({
               </p>
               <div className="h-px bg-linear-to-r from-gray-600/40 via-gray-600/20 to-transparent" />
               {tags.length > 0 && (
-                <div className="flex flex-wrap gap-2 pt-1">
+                <div className="flex flex-wrap gap-2 pt-1 min-h-15">
                   {tags.map((tag, index) => (
                     <motion.span
                       key={tag}
                       initial={{ opacity: 0, x: -10 }}
                       whileInView={{ opacity: 1, x: 0 }}
                       transition={{ delay: 0.3 + index * 0.1 }}
-                      className="px-3 py-1 text-xs text-gray-400 transition-all duration-300 border rounded-full bg-gray-700/30 border-gray-600/40 hover:bg-gray-700/50 hover:text-gray-300"
+                      className="px-3 py-1 h-fit w-fit text-xs text-gray-400 transition-all duration-300 border rounded-full bg-gray-700/30 border-gray-600/40 hover:bg-gray-700/50 hover:text-gray-300"
                     >
                       {tag}
                     </motion.span>

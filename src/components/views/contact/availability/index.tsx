@@ -1,8 +1,28 @@
 "use client";
 
 import SeparatorSection from "@/components/layout/SeparatorSection";
-import { motion, useScroll, useTransform } from "framer-motion";
+import useMediaQuery from "@/hooks/useMediaQuery";
+import { motion, MotionValue, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
+
+const content = [
+  {
+    title: "Freelance & Contract",
+    desc: "Short to mid-term web development projects with clear deliverables.",
+  },
+  {
+    title: "Collaboration",
+    desc: "Open source or team projects where I can contribute and learn.",
+  },
+  {
+    title: "Full-Time Developer Role",
+    desc: "Ready to join a team and contribute across frontend, backend, and testing to deliver reliable and scalable applications.",
+  },
+  {
+    title: "Response Time",
+    desc: "Usually within 24 hours. I value clear and prompt communication.",
+  },
+];
 
 export default function Availability() {
   const ref = useRef<HTMLDivElement>(null);
@@ -10,16 +30,29 @@ export default function Availability() {
     target: ref,
     offset: ["start end", "end start"],
   });
+  const isDekstop = useMediaQuery("(min-width: 1024px)");
 
-  const opacity = useTransform(scrollYProgress, [0, 0.25], [0, 1]);
+  const opacity = useTransform(scrollYProgress, [0, 0.6], [0, 1]);
+  const opacity1 = useTransform(scrollYProgress, [0, 0.5], [0, 1]);
+
   const y = useTransform(scrollYProgress, [0, 0.3], [80, 0]);
+
+  const rotateY1 = useTransform(scrollYProgress, [0, 0.5], [90, 0]);
+  const rotateY2 = useTransform(scrollYProgress, [0, 0.5], [-90, 0]);
+
+  const rotateX1 = useTransform(scrollYProgress, [0, 0.3], [100, 0]);
+
+  const yDesc = useTransform(scrollYProgress, [0, 0.3], [-150, 0]);
 
   return (
     <section
       ref={ref}
-      className="relative flex flex-col items-center justify-center w-full min-h-screen px-8 py-24 overflow-hidden text-gray-300 lg:px-16 bg-zinc-800 font-instrument-sans"
+      className="relative z-30 flex flex-col items-center justify-center w-full min-h-screen px-8 py-24 overflow-hidden text-gray-300 lg:px-16 bg-zinc-800 font-instrument-sans"
     >
-      <motion.div style={{ opacity }} className="w-full max-w-5xl mx-auto">
+      <motion.div
+        style={{ opacity: isDekstop ? opacity : 1 }}
+        className="w-full mx-auto"
+      >
         <SeparatorSection
           scrollYProgress={scrollYProgress}
           number="02"
@@ -31,12 +64,20 @@ export default function Availability() {
           style={{ y }}
           className="flex flex-col gap-16 mt-16 lg:mt-24 lg:flex-row lg:gap-20"
         >
-          <div className="lg:w-1/3">
+          <div
+            style={{
+              perspective: "1200px",
+            }}
+            className="relative lg:w-1/3"
+          >
             <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-              viewport={{ once: true }}
+              style={{
+                rotateY: isDekstop ? rotateY1 : 0,
+                rotateX: isDekstop ? 0 : rotateX1,
+                transformOrigin: isDekstop ? "left center" : "bottom center",
+                transformStyle: "preserve-3d",
+                opacity: isDekstop ? 1 : opacity1,
+              }}
               className="flex flex-col gap-6"
             >
               <div className="flex items-center gap-3">
@@ -56,30 +97,37 @@ export default function Availability() {
                   Available
                 </span>
               </div>
-
-              <h2 className="text-3xl font-bold lg:text-5xl text-gray-300">
+              <h2 className="text-6xl font-bold lg:text-[10vh] lg:leading-20 text-gray-300">
                 Open for
                 <br />
-                <span className="text-gray-500">Opportunities</span>
+                <span className="text-gray-500 lg:text-[8vh] text-5xl">
+                  Opportunities
+                </span>
               </h2>
 
-              <div className="w-36 h-0.5 bg-linear-to-r from-gray-500 to-transparent" />
+              <div className="w-[60%] h-0.5 bg-linear-to-r from-gray-500 to-transparent" />
             </motion.div>
           </div>
 
-          <div className="lg:w-2/3">
+          <div
+            style={{
+              perspective: "1200px",
+            }}
+            className="lg:w-2/3"
+          >
             <motion.div
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{
-                duration: 0.8,
-                delay: 0.2,
-                ease: [0.22, 1, 0.36, 1],
+              style={{
+                rotateY: isDekstop ? rotateY2 : 0,
+                transformOrigin: isDekstop ? "right center" : "center center",
+                transformStyle: "preserve-3d",
+                opacity: isDekstop ? 1 : opacity1,
               }}
-              viewport={{ once: true }}
               className="flex flex-col gap-10"
             >
-              <p className="text-xl leading-relaxed text-gray-400 lg:text-2xl">
+              <motion.p
+                style={{ y: isDekstop ? 0 : yDesc }}
+                className="text-xl leading-relaxed text-gray-400 lg:text-2xl"
+              >
                 Currently accepting{" "}
                 <span className="font-semibold text-gray-300">
                   freelance projects
@@ -90,46 +138,16 @@ export default function Availability() {
                 </span>
                 . I&apos;m passionate about building meaningful digital
                 experiences.
-              </p>
+              </motion.p>
 
               <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-                {[
-                  {
-                    title: "Freelance & Contract",
-                    desc: "Short to mid-term web development projects with clear deliverables.",
-                  },
-                  {
-                    title: "Collaboration",
-                    desc: "Open source or team projects where I can contribute and learn.",
-                  },
-                  {
-                    title: "Full-Time Developer Role",
-                    desc: "Ready to join a team and contribute across frontend, backend, and testing to deliver reliable and scalable applications.",
-                  },
-                  {
-                    title: "Response Time",
-                    desc: "Usually within 24 hours. I value clear and prompt communication.",
-                  },
-                ].map((item, i) => (
-                  <motion.div
+                {content.map((item, i) => (
+                  <ListContent
                     key={i}
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{
-                      duration: 0.5,
-                      delay: 0.3 + i * 0.1,
-                      ease: [0.22, 1, 0.36, 1],
-                    }}
-                    viewport={{ once: true }}
-                    className="flex flex-col gap-2 p-6 border border-gray-300/10 hover:border-gray-300/20 transition-colors duration-500"
-                  >
-                    <span className="text-sm font-semibold tracking-wide text-gray-300">
-                      {item.title}
-                    </span>
-                    <span className="text-sm leading-relaxed text-gray-500">
-                      {item.desc}
-                    </span>
-                  </motion.div>
+                    content={item}
+                    scrollYProgress={scrollYProgress}
+                    i={i}
+                  />
                 ))}
               </div>
             </motion.div>
@@ -137,5 +155,42 @@ export default function Availability() {
         </motion.div>
       </motion.div>
     </section>
+  );
+}
+
+function ListContent({
+  content,
+  scrollYProgress,
+  i,
+}: {
+  content: { title: string; desc: string };
+  i: number;
+  scrollYProgress: MotionValue<number>;
+}) {
+  const isDekstop = useMediaQuery("(min-width: 1024px)");
+  const value = i + 1;
+
+  const x = useTransform(
+    scrollYProgress,
+    [value * 0.08, value * 0.05 + 0.4],
+    [-120, 0],
+  );
+  const opacity = useTransform(
+    scrollYProgress,
+    [value * 0.1, value * 0.05 + 0.4],
+    [0, 1],
+  );
+  return (
+    <motion.div
+      style={{ x: isDekstop ? 0 : x, opacity: isDekstop ? 1 : opacity }}
+      className="flex flex-col gap-2 p-6 border border-gray-300/10 hover:border-gray-300/20"
+    >
+      <span className="text-2xl font-semibold tracking-wide text-gray-300">
+        {content.title}
+      </span>
+      <span className="leading-relaxed text-gray-500 text-md">
+        {content.desc}
+      </span>
+    </motion.div>
   );
 }

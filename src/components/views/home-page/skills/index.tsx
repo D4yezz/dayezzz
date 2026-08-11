@@ -8,7 +8,7 @@ import {
   useScroll,
   useTransform,
 } from "framer-motion";
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 
 const skills = [
   {
@@ -23,7 +23,7 @@ const skills = [
   {
     title: "Fullstack Web Apps",
     description:
-      "Handling frontend, backend logic, and integrations with React & NextJS.",
+      "Handling frontend, backend logic, and integrations with React.js & Next.js.",
   },
 ];
 
@@ -94,13 +94,13 @@ export default function Skills() {
                 transition={{ delay: index * 0.1, duration: 0.6 }}
                 viewport={{ once: true }}
                 whileHover={{ scale: 1.05, y: -5 }}
-                className="relative lg:p-8 p-6 transition-all duration-500 bg-gray-300 border-2 border-gray-300 group hover:bg-zinc-800 hover:shadow-2xl hover:scale-105"
+                className="relative p-6 transition-all duration-500 bg-gray-300 border-2 border-gray-300 lg:p-8 group hover:bg-zinc-800 hover:shadow-2xl hover:scale-105"
               >
                 <div className="absolute text-6xl font-bold text-gray-400 transition-all duration-500 select-none top-4 right-4 group-hover:text-gray-300 opacity-20">
                   0{index + 1}
                 </div>
                 <div className="relative z-10">
-                  <h3 className="lg:mb-4 mb-2 text-3xl font-bold transition-colors duration-500 text-zinc-800 group-hover:text-gray-300">
+                  <h3 className="mb-2 text-3xl font-bold transition-colors duration-500 lg:mb-4 text-zinc-800 group-hover:text-gray-300">
                     {skill.title}
                   </h3>
                   <p className="text-lg leading-relaxed transition-colors duration-500 text-zinc-700 group-hover:text-gray-400">

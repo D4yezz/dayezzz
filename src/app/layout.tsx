@@ -18,6 +18,7 @@ import { config } from "@fortawesome/fontawesome-svg-core";
 import "@fortawesome/fontawesome-svg-core/styles.css";
 import LoadingScreen from "@/components/layout/PageTransition/LoadingScreen";
 import { TooltipProvider } from "@/components/ui/tooltip";
+import ScrollToTop from "@/components/providers/ScrollToTop";
 config.autoAddCss = false;
 
 const geistSans = Geist({
@@ -166,6 +167,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
         <LenisProvider>
+          <ScrollToTop />
           <CursorProvider>
             <LoadingScreen />
             <CustomCursor />

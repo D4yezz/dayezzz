@@ -258,4 +258,34 @@ export const projects: IProject[] = [
       },
     ],
   },
+  {
+    id: 8,
+    name: "GlowBotani",
+    description:
+      "A modern, high-performance web platform for a premium organic skincare brand to showcase natural beauty products and drive sales conversion.",
+    longDesc:
+      "GlowBotani is a full-featured web application built for an organic skincare MSME (UMKM). Designed with an elegant, natural aesthetic using Next.js App Router and Framer Motion, the platform features a complete multi-page architecture, a dynamic SEO-optimized blog to boost organic reach, an interactive product catalog, integrated Google Maps location services, and direct WhatsApp order triggers tailored to convert visitors into customers.",
+    features: [
+      "Comprehensive Multi-Page Architecture featuring dedicated sections for Home, About Us, Product Catalog, SEO Blog, and Contact",
+      "Dynamic SEO-Optimized Blog System engineered to publish natural skincare articles and improve search engine rankings",
+      "Interactive Product Catalog & Advantage Gallery showcasing premium herbal ingredients and specific product benefits",
+      "Integrated Store Location via Google Maps along with strategically placed multi-CTA triggers pointing directly to WhatsApp",
+      "Maximum Speed & Performance Optimization tuned to deliver top-tier Google PageSpeed scores and seamless mobile UX",
+    ],
+    images: [
+      "/projects/glow-botani/1.png",
+      "/projects/glow-botani/2.png",
+      "/projects/glow-botani/3.png",
+      "/projects/glow-botani/4.png",
+      "/projects/glow-botani/5.png",
+      "/projects/glow-botani/6.png",
+      "/projects/glow-botani/7.png",
+      "/projects/glow-botani/8.png",
+    ],
+    tags: ["Next.js", "TailwindCSS", "Framer Motion", "TypeScript"],
+    role: "Frontend Developer",
+    year: "July 2026",
+    link: "https://glow-botani.vercel.app/",
+    repo: "https://github.com/D4yezz/glow-botani",
+  },
 ];

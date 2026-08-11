@@ -33,7 +33,7 @@ export function CardSimple({
         onClick={() => {
           if (isDekstop) router.push("/projects/" + id);
         }}
-        className="relative w-full h-full overflow-hidden transition-all duration-300 border rounded-2xl bg-zinc-800 backdrop-blur-sm border-gray-600/30 group-hover:border-gray-600/60 shadow-2xl"
+        className="relative w-full h-full overflow-hidden transition-all duration-300 border shadow-2xl rounded-2xl bg-zinc-800 backdrop-blur-sm border-gray-600/30 group-hover:border-gray-600/60"
       >
         <div className="absolute top-0 left-0 right-0 h-px bg-linear-to-r from-transparent via-gray-500/50 to-transparent" />
 
@@ -46,11 +46,13 @@ export function CardSimple({
             className="object-cover w-full h-full transition-all duration-500 ease-out grayscale-75 group-hover:grayscale-0 group-hover:scale-105"
             loading="lazy"
           />
-
+          <span className="absolute -top-10 -left-10 bg-zinc-800 w-10 text-xl font-bold font-inter h-10 rounded-lg flex items-center justify-center group-hover:left-1.5 group-hover:top-1.5 duration-300 ease-in-out">
+            {id}
+          </span>
           <div className="absolute inset-0 transition-opacity duration-300 bg-linear-to-t from-zinc-800 via-transparent to-transparent opacity-60 group-hover:opacity-40" />
         </div>
         <div className="flex flex-col justify-between lg:h-[40%] h-[55%] p-5 md:p-6">
-          <div className="flex flex-col justify-start lg:gap-4 gap-2">
+          <div className="flex flex-col justify-start gap-2 lg:gap-4">
             <div className="relative w-fit">
               <h2 className="text-xl font-semibold text-gray-300 transition-colors duration-300 md:text-2xl font-geist-sans group-hover:text-gray-100">
                 {title}
@@ -75,7 +77,7 @@ export function CardSimple({
                     initial={{ opacity: 0, x: -10 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     transition={{ delay: 0.3 + index * 0.1 }}
-                    className="px-3 py-1 text-xs select-none text-gray-400 transition-all duration-300 border rounded-full bg-gray-700/30 border-gray-600/40 hover:bg-gray-700/50 hover:text-gray-300"
+                    className="px-3 py-1 text-xs text-gray-400 transition-all duration-300 border rounded-full select-none bg-gray-700/30 border-gray-600/40 hover:bg-gray-700/50 hover:text-gray-300"
                   >
                     {tag}
                   </motion.li>
@@ -92,7 +94,7 @@ export function CardSimple({
               onClick={() => {
                 if (!isDekstop) router.push("/projects/" + id);
               }}
-              className="flex items-center gap-2 text-gray-500 transition-colors duration-300 group-hover:text-gray-400 select-none cursor-pointer"
+              className="flex items-center gap-2 text-gray-500 transition-colors duration-300 cursor-pointer select-none group-hover:text-gray-400"
             >
               <span className="text-xs font-medium">VIEW PROJECT</span>
               <motion.div
