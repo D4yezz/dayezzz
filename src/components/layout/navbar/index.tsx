@@ -197,7 +197,7 @@ export default function Navbar({
                           onMouseLeave={onMouseLeave}
                           // onMouseLeave={()=>setHoveredIndex(null)}
                           data-cursor="box"
-                          className="relative px-6 py-4 overflow-hidden duration-300 ease-in-out cursor-pointer select-none cursor-box lg:text-6xl text-5xl font-medium w-fit hover:text-gray-800"
+                          className="relative px-6 py-4 overflow-hidden duration-300 ease-in-out cursor-pointer select-none cursor-box lg:text-7xl text-5xl font-medium font-geist-sans w-fit hover:text-gray-800"
                         >
                           <motion.div
                             className="absolute top-0 bottom-0 left-0 z-0 lg:bg-gray-300"
