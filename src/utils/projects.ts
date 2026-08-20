@@ -288,4 +288,40 @@ export const projects: IProject[] = [
     link: "https://glow-botani.vercel.app/",
     repo: "https://github.com/D4yezz/glow-botani",
   },
+  {
+    id: 9,
+    name: "NusaBuild Studio",
+    description:
+      "A modern, high-performance corporate web platform for a premier architecture and construction studio to showcase structural portfolio and drive client consultations.",
+    longDesc:
+      "NusaBuild Studio is a full-featured corporate web application engineered for an architecture and construction firm. Built with Next.js App Router, TypeScript, and Framer Motion, the platform features a multi-language architecture (Indonesian & English), interactive portfolio showcases, structured project workflow visualizers, career opportunity listings, an integrated industry news/blog section, and seamless WhatsApp consultation triggers tailored to convert corporate leads into business inquiries.",
+    features: [
+      "Multilingual Support (i18n) featuring seamless locale switching between Indonesian and English ",
+      "Comprehensive Corporate Architecture with dedicated sections for Home, About Us, Services, Projects, Careers, Blog, and Contact ",
+      "Interactive Project Portfolio & Detail Pages highlighting structural specifications, client metadata, and architectural showcases ",
+      "Strategic Consultation Workflows featuring direct WhatsApp CTA triggers, interactive contact forms, and office location integration ",
+      "High-Performance Architecture optimized with Next.js, Tailwind CSS, Framer Motion, and dual Light/Dark mode themes ",
+    ],
+    images: [
+      "/projects/nusa-build/1.png",
+      "/projects/nusa-build/2.png",
+      "/projects/nusa-build/3.png",
+      "/projects/nusa-build/4.png",
+      "/projects/nusa-build/5.png",
+      "/projects/nusa-build/6.png",
+      "/projects/nusa-build/7.png",
+      "/projects/nusa-build/8.png",
+    ],
+    tags: [
+      "Next.js",
+      "TypeScript",
+      "Tailwind CSS",
+      "Framer Motion",
+      "next-intl",
+    ],
+    role: "Frontend Developer",
+    year: "August 2026",
+    link: "https://nusa-build.vercel.app/",
+    repo: "https://github.com/D4yezz/nusa-build",
+  },
 ];
