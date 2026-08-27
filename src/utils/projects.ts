@@ -200,6 +200,9 @@ export const projects: IProject[] = [
       "/projects/dayezzz/3.png",
       "/projects/dayezzz/4.png",
       "/projects/dayezzz/5.png",
+      "/projects/dayezzz/6.png",
+      "/projects/dayezzz/7.png",
+      "/projects/dayezzz/8.png",
     ],
     tags: [
       "Next.js",
